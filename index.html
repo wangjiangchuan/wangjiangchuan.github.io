@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
@@ -18,489 +18,63 @@
     <link rel="alternate" href="/atom.xml" title="Aiamjay`s Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.ico">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+  <link rel="stylesheet" href="/css/typing.css">
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Aiamjay`s Blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <div id="container" class="container">
+    <div class="home">
+  <div class="content">
+    <div class="profile">
+      <h1 class="nickname">Jack Wang</h1>
+      <div class="description">
+        <p><p>Dennis MacAlistair Ritchie, <strong>向大师致敬!</strong></p>
+</p>
       </div>
     </div>
+    <hr/>
+    <ul class="links">
+      
+        <li>
+          <a href="/archives">博客</a>
+        </li>
+      
+        <li>
+          <a href="https://github.com/wangjiangchuan">GitHub</a>
+        </li>
+      
+    </ul>
   </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Android-System-Animation-Usage" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/08/Android-System-Animation-Usage/" class="article-date">
-  <time datetime="2016-08-08T04:56:14.000Z" itemprop="datePublished">2016-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/08/Android-System-Animation-Usage/">Android System Animation Usage</a>
-    </h1>
-  
+</div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Android&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x4F5C;&#x7528;&#x4ECB;&#x7ECD;"><a href="#Android&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x4F5C;&#x7528;&#x4ECB;&#x7ECD;" class="headerlink" title="Android&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x4F5C;&#x7528;&#x4ECB;&#x7ECD;"></a>Android&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x4F5C;&#x7528;&#x4ECB;&#x7ECD;</h1><p>&#x5B89;&#x5353;&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x4E3B;&#x8981;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x516D;&#x5927;&#x7C7B;&#xFF1A;</p>
-<ol>
-<li>Window&#x52A8;&#x753B;</li>
-<li>Activity&#x52A8;&#x753B;</li>
-<li>Task&#x52A8;&#x753B;</li>
-<li>Fragment&#x52A8;&#x753B;</li>
-<li>Wallpaper&#x52A8;&#x753B;</li>
-<li>Fragment&#x52A8;&#x753B;</li>
-</ol>
-<h2 id="&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;"><a href="#&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;"></a>&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;</h2><p>&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x901A;&#x8FC7;&#x6307;&#x5B9A;Activity&#x7684;Theme&#xFF0C;&#x5728;xml&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#xFF1B;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x662F;<br>&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8FDB;&#x884C;&#x5173;&#x8054;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x540E;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x7ED9;&#x51FA;&#x8BF4;&#x660E;&#x3002;<br>&#x4F7F;&#x7528;Theme&#x6765;&#x6307;&#x5B9A;&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#xFF0C;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x597D;&#x66FF;&#x6362;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8D4B;&#x503C;Theme&#x7684;windowAnimationStyle&#x5C5E;&#x6027;&#xFF0C;<br>&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;style&#xFF0C;&#x4E0B;&#x9762;&#x7ED9;&#x51FA;&#x8986;&#x76D6;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;Activity&#x52A8;&#x753B;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;/<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;windowAnimation&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;android:Animation.Activity&quot;</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--activity&#x7684; animation --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityOpenEnterAnimation&quot;</span>&gt;</span>@anim/act_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityOpenExitAnimation&quot;</span>&gt;</span>@anim/act_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityCloseEnterAnimation&quot;</span>&gt;</span>@anim/act_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityCloseExitAnimation&quot;</span>&gt;</span>@anim/act_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>&#x7136;&#x540E;&#x6307;&#x5B9A;&#x5230;&#x81EA;&#x5B9A;&#x4E49;&#x7684;Theme&#x4E2D;&#x66FF;&#x6362;&#x6389;windowAnimationStyle&#x5C5E;&#x6027;&#x3002;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;/<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;MyTheme&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.AppCompat.Light.DarkActionBar&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowAnimationStyle&quot;</span>&gt;</span>@style/windowAnimation<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>&#x6700;&#x540E;&#x5728;AndroidManifest.xml&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5C06;Theme&#x5173;&#x8054;&#x5230;Activity&#x3002;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">&quot;.FirstActivity&quot;</span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">&quot;@style/MyTheme&quot;</span></div><div class="line">            <span class="attr">android:launchMode</span>=<span class="string">&quot;standard&quot;</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>&#x901A;&#x8FC7;Theme&#x6307;&#x5B9A;&#x7CFB;&#x7EDF;&#x52A8;&#x753B;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x573A;&#x666F;&#x5E7F;&#x6CDB;&#xFF1B;&#x4F46;&#x662F;&#x5728;&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x6765;&#x5B8C;&#x6210;&#xFF0C;&#x901A;&#x8FC7;&#x4EE3;&#x7801;<br>&#x4F1A;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x5BF9;&#x5E94;&#x7684;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;&#x3002;</p>
-<h2 id="&#x7CFB;&#x7EDF;&#x52A8;&#x753B;"><a href="#&#x7CFB;&#x7EDF;&#x52A8;&#x753B;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x52A8;&#x753B;"></a>&#x7CFB;&#x7EDF;&#x52A8;&#x753B;</h2><h3 id="Window&#x52A8;&#x753B;"><a href="#Window&#x52A8;&#x753B;" class="headerlink" title="Window&#x52A8;&#x753B;"></a>Window&#x52A8;&#x753B;</h3><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Application</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>windowEnterAnimation</td>
-<td>&#x521B;&#x5EFA;Window&#x5BF9;&#x8C61;&#x65F6;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;&#xFF0C;&#x6BD4;&#x5982;&#x65B0;&#x5EFA;Dialog</td>
-</tr>
-<tr>
-<td>windowExitAnimation</td>
-<td>&#x5F53;window&#x5BF9;&#x8C61;&#x88AB;remove&#x6389;&#x65F6;&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;&#xFF0C;&#x5982;Dialog&#x7684;dismiss()&#x65F6;&#x8C03;&#x7528;</td>
-</tr>
-<tr>
-<td>windowShowAnimation</td>
-<td>window&#x4ECE;INVISIBLE&#x5230;VISIBLE&#x65F6;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x6BD4;&#x5982;&#x6309;HOME&#x952E;&#x8FD4;&#x56DE;&#x684C;&#x9762;&#x65F6;&#xFF0C;&#x5E94;&#x7528;&#x7684;window&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>windowHideAnimation</td>
-<td>window&#x4ECE;VISIBLE&#x5230;INVISIBLE&#x8C03;&#x7528;&#x7684;&#x52A8;&#x753B;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="&#x52A8;&#x753B;&#x6F14;&#x793A;"><a href="#&#x52A8;&#x753B;&#x6F14;&#x793A;" class="headerlink" title="&#x52A8;&#x753B;&#x6F14;&#x793A;"></a>&#x52A8;&#x753B;&#x6F14;&#x793A;</h3><p><strong>windowEnterAnimation&#x548C;windowExitAnimation</strong></p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/window_enter_exit.gif" alt="window_enter_exit"></p>
-<p>&#x8FD9;&#x4E2A;&#x52A8;&#x753B;&#x662F;&#x901A;&#x8FC7;Dialog&#x6765;&#x6F14;&#x793A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4E0D;&#x662F;&#x901A;&#x8FC7;Theme&#x6765;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Dialog Animation--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;dialogAnimation&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;android:Animation.Dialog&quot;</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowEnterAnimation&quot;</span>&gt;</span>@anim/dialog_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowExitAnimation&quot;</span>&gt;</span>@anim/dialog_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//java &#x4EE3;&#x7801;</span></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">newDialog</span><span class="params">()</span> </span>{</div><div class="line">        AlertDialog.Builder builder =<span class="keyword">new</span> AlertDialog.Builder(windowFirstActivity.<span class="keyword">this</span>);</div><div class="line">        builder.setMessage(<span class="string">&quot;This is a Dialog&quot;</span>);</div><div class="line">        builder.setTitle(<span class="string">&quot;Dialog&quot;</span>);</div><div class="line">        builder.setPositiveButton(<span class="string">&quot;OK&quot;</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() {</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>{</div><div class="line">                dialog.dismiss();</div><div class="line">            }</div><div class="line">        });</div><div class="line">        <span class="keyword">final</span> Dialog dia = builder.create();</div><div class="line">        dia.getWindow().setWindowAnimations(R.style.dialogAnimation);</div><div class="line">        dia.show();</div><div class="line">    }</div></pre></td></tr></table></figure>
-<p><strong>windowShowAnimation</strong></p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/window_show.gif" alt="window_show.gif"></p>
-<p>gif&#x4E2D;&#x662F;&#x4ECE;&#x53E6;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5207;&#x6362;&#x5230;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x89E6;&#x53D1;windowShowAnimation&#xFF0C;&#x505A;&#x7684;&#x662F;scale&#x52A8;&#x753B;&#x3002;</p>
-<h2 id="Activity&#x52A8;&#x753B;"><a href="#Activity&#x52A8;&#x753B;" class="headerlink" title="Activity&#x52A8;&#x753B;"></a>Activity&#x52A8;&#x753B;</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Application</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>activityOpenEnterAnimation</td>
-<td>&#x521B;&#x5EFA;&#x5E76;&#x8FDB;&#x5165;&#x65B0;&#x7684;activity&#x65F6;&#xFF0C;&#x65B0;&#x7684;Activity&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>activityOpenExitAnimation</td>
-<td>&#x521B;&#x5EFA;&#x5E76;&#x8FDB;&#x5165;&#x65B0;&#x7684;activity&#x65F6;&#xFF0C;&#x5F53;&#x524D;&#x7684;activity&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>activityCloseEnterAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;activity&#x65F6;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x663E;&#x793A;&#x7684;activity&#x6240;&#x8981;&#x505A;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>activityCloseExitAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;activity&#x65F6;&#xFF0C;&#x5F53;&#x524D;activity&#x505A;&#x7684;&#x9000;&#x51FA;&#x7684;&#x52A8;&#x753B;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="&#x52A8;&#x753B;&#x6548;&#x679C;&#x6F14;&#x793A;"><a href="#&#x52A8;&#x753B;&#x6548;&#x679C;&#x6F14;&#x793A;" class="headerlink" title="&#x52A8;&#x753B;&#x6548;&#x679C;&#x6F14;&#x793A;"></a>&#x52A8;&#x753B;&#x6548;&#x679C;&#x6F14;&#x793A;</h3><p><img src="/2016/08/08/Android-System-Animation-Usage/activity_open_close_enter_exit.gif" alt="activity_open_close_enter_exit.gif"></p>
-<p>gif&#x4E2D;&#x6F14;&#x793A;&#x5305;&#x62EC;&#x6709;Activity&#x7684;&#x56DB;&#x4E2A;&#x52A8;&#x753B;&#x3002;<br>Activity&#x52A8;&#x753B;&#x7528;&#x5728;&#x5207;&#x6362;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;Activity&#x5230;&#x4E0B;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x8D77;&#x5230;&#x4E2D;&#x95F4;&#x8854;&#x63A5;&#x7684;&#x4F5C;&#x7528;&#x3002;<br>&#x9664;&#x4E86;&#x4F7F;&#x7528;xml&#x65B9;&#x5F0F;&#x52A0;&#x8F7D;&#x52A8;&#x753B;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x8F7D;&#xFF1A;<br><strong>1.overridePendingTransition</strong><br>&#x4ECE;Android2.0&#x5F00;&#x59CB;&#x5728;Activity&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;<br>public void overridePendingTransition (int enterAnim, int exitAnim) ;<br>overridePendingTransition &#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5728;startActivity()&#x6216;&#x8005; finish()&#x65B9;&#x6CD5;&#x7684;&#x540E;&#x9762;.<br>&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(Activity1.<span class="keyword">this</span>, Activity2.class);</div><div class="line">startActivity(intent);</div><div class="line">overridePendingTransition(R.anim.slide_in_from_ight, R.anim.slide_out_to_left);</div></pre></td></tr></table></figure></p>
-<p><strong>2.ActivityOptions</strong><br>makeCustomAnimation(Context context, int enterResId, int exitResId)<br>Activity&#x5207;&#x6362;&#x52A8;&#x753B;,&#x6307;&#x5B9A;&#x4ECE;&#x4E00;&#x4E2A;Activity&#x5207;&#x6362;&#x5230;&#x53E6;&#x5916;&#x4E00;&#x4E2A;Activity&#x7684;&#x9000;&#x51FA;&#x548C;&#x8FDB;&#x5165;&#x52A8;&#x753B;,<br>&#x8FD9;&#x4E2A;&#x548C;overridePendingTransition&#x975E;&#x5E38;&#x7C7B;&#x4F3C;,&#x5728;&#x5B9E;&#x73B0;&#x6548;&#x679C;&#x4E0A;&#x548C;overridePendingTransition&#x4E5F;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;makeScaleUpAnimation&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;Activity&#x4ECE;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684;view&#x9010;&#x6E10;&#x653E;&#x5230;&#x5230;Activity&#x7684;&#x539F;&#x59CB;&#x5927;&#x5C0F;&#x3002;ActivityOptions&#x63D0;&#x4F9B;&#x4F4E;&#x7248;&#x672C;&#x7684;&#x517C;&#x5BB9;&#x7C7B;ActivityOptionCompat.<br>&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ActivityOptions</span></div><div class="line">ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(<span class="keyword">this</span>, R.anim.translate_in, R.anim.translate_none);</div><div class="line">ActivityCompat.startActivity(<span class="keyword">this</span>, <span class="keyword">new</span> Intent(<span class="keyword">this</span>, Activity2.class), compat.toBundle());</div></pre></td></tr></table></figure></p>
-<h3 id="Task&#x52A8;&#x753B;"><a href="#Task&#x52A8;&#x753B;" class="headerlink" title="Task&#x52A8;&#x753B;"></a>Task&#x52A8;&#x753B;</h3><table>
-<thead>
-<tr>
-<th>TaskAnimation</th>
-<th>Application</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>taskOpenEnterAnimation</td>
-<td>&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;activity&#xFF0C;&#x5E76;&#x4E14;&#x6B64;activity&#x8FD0;&#x884C;&#x5728;&#x65B0;&#x7684;task&#x4E2D;&#xFF0C;&#x8BE5;activity&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>taskOpenExitAnimation</td>
-<td>&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;activity&#xFF0C;&#x5E76;&#x4E14;&#x6B64;activity&#x8FD0;&#x884C;&#x5728;&#x65B0;&#x7684;task&#x4E2D;&#xFF0C;&#x5F53;&#x524D;&#x7684;activity&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>launchTaskBehindTargetAnimation</td>
-<td>intent.FLAG_ACTIVITY_LAUNCH_BEHIND &#x6CA1;&#x6709;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x6682;&#x4E0D;&#x660E;&#x786E;&#x4F5C;&#x7528;</td>
-</tr>
-<tr>
-<td>launchTaskBehindSourceAnimation</td>
-<td>intent.FLAG_ACTIVITY_LAUNCH_BEHIND &#x6CA1;&#x6709;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x6682;&#x4E0D;&#x660E;&#x786E;&#x4F5C;&#x7528;</td>
-</tr>
-<tr>
-<td>taskCloseEnterAnimation</td>
-<td>&#x5F53;&#x524D;&#x5173;&#x95ED;&#x7684;activity&#x662F;&#x5176;&#x6240;&#x5728;task&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;activity&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8FDB;&#x5165;&#x5C4F;&#x5E55;&#x7684;activity&#x6240;&#x505A;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;(&#x6B64;activity&#x5728;&#x53E6;&#x5916;&#x4E00;&#x4E2A;task&#x4E2D;)</td>
-</tr>
-<tr>
-<td>taskCloseExitAnimation</td>
-<td>&#x5F53;&#x524D;&#x5173;&#x95ED;&#x7684;activity&#x662F;&#x5176;&#x6240;&#x5728;task&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;activity&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x8BE5;activity&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>taskToFrontEnterAnimation</td>
-<td>&#x628A;&#x4E00;&#x4E2A;activity&#x79FB;&#x5230;&#x6808;&#x9876;&#x663E;&#x793A;&#x65F6;&#xFF0C;&#x8BE5;activity&#x6240;&#x505A;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>taskToFrontExitAnimation</td>
-<td>&#x628A;&#x4E00;&#x4E2A;activity&#x79FB;&#x5230;&#x6808;&#x9876;&#x663E;&#x793A;&#x65F6;&#xFF0C;&#x539F;&#x5148;&#x5C4F;&#x5E55;&#x4E0A;&#x663E;&#x793A;&#x7684;activity&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>taskToBackEnterAnimation</td>
-<td>&#x628A;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;activity&#x4ECE;&#x6808;&#x9876;&#x79FB;&#x52A8;&#x5230;&#x540E;&#x9762;&#xFF0C;&#x8BE5;activity&#x9000;&#x51FA;&#x5C4F;&#x5E55;&#x7684;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>taskToBackExitAnimation</td>
-<td>&#x628A;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;activity&#x4ECE;&#x6808;&#x9876;&#x79FB;&#x52A8;&#x5230;&#x540E;&#x9762;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x663E;&#x793A;&#x7684;activity&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="&#x542F;&#x52A8;&#x6A21;&#x5F0F;"><a href="#&#x542F;&#x52A8;&#x6A21;&#x5F0F;" class="headerlink" title="&#x542F;&#x52A8;&#x6A21;&#x5F0F;"></a>&#x542F;&#x52A8;&#x6A21;&#x5F0F;</h3><p>task&#x52A8;&#x753B;&#x7684;&#x8BBE;&#x7F6E;&#x4E0E;activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x6709;&#x5173;&#xFF0C;activity&#x6709;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2D;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF1A;</p>
-<ol>
-<li>standard</li>
-<li>singleTop</li>
-<li>singleTask</li>
-<li>singleInsatnce</li>
-</ol>
-<p>&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x7684;&#x8BF4;&#x660E;&#xFF1A;<br>1.&#x5BF9;&#x4E8E;standard&#x548C;singleTop&#x6A21;&#x5F0F;&#xFF0C;&#x7531;&#x4EA7;&#x751F;&#x8BE5;Intent(&#x8C03;&#x7528;startActivity())&#x7684;task&#x6301;&#x6709;&#x8BE5;Activity&#x2014;&#x2014;&#x9664;&#x975E;Intent&#x5BF9;&#x8C61;&#x91CC;&#x542B;&#x6709;FLAG_ACTIVITY_NEW_TASK&#x6807;&#x5FD7;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5BFB;&#x627E;&#x4E00;&#x4E2A;&#x65B0;&#x7684;task&#x3002;&#x76F8;&#x53CD;&#x7684;&#xFF0C;singTask&#x548C;singleInstance&#x6A21;&#x5F0F;&#xFF0C;&#x603B;&#x662F;&#x6807;&#x5FD7;Activity&#x4E3A;task&#x7684;root Activity&#xFF0C;&#x5F00;&#x542F;&#x8FD9;&#x6837;&#x7684;&#x6D3B;&#x52A8;&#x4F1A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;task&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x88C5;&#x5165;&#x67D0;&#x4E2A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#xA0;</p>
-<p>2.&#x4E00;&#x4E2A;standard&#x6216;&#x8005;singleTop&#x5C5E;&#x6027;&#x7684;Activity&#x53EF;&#x4EE5;&#x5B9E;&#x4F8B;&#x5316;&#x591A;&#x6B21;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x5C5E;&#x4E8E;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;task&#xFF0C;&#x800C;&#x4E14;&#x4E00;&#x4E2A;task&#x4E5F;&#x53EF;&#x4EE5;&#x542B;&#x6709;&#x76F8;&#x540C;Activity&#x7684;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x76F8;&#x53CD;&#x7684;&#xFF0C;singleTask&#x6216;&#x8005;singleInstance&#x5C5E;&#x6027;&#x7684;Activity&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF08;&#x5355;&#x4F8B;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;Activity&#x662F;&#x4F4D;&#x4E8E;task&#x7684;&#x5E95;&#x90E8;&#xFF0C;&#x8FD9;&#x79CD;&#x9650;&#x5236;&#x610F;&#x5473;&#x7740;&#x540C;&#x4E00;&#x8BBE;&#x5907;&#x7684;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x8BE5;task&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
-<p>3.&#x4E00;&#x4E2A;singleInstance&#x5C5E;&#x6027;&#x7684;Activity&#x662F;&#x5B83;&#x6240;&#x5728;&#x7684;task&#x91CC;&#x4EC5;&#x6709;&#x7684;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x5982;&#x679C;&#x4ED6;&#x542F;&#x52A8;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x90A3;&#x4E2A;Activity&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;&#x8FDB;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;task&#x800C;&#x65E0;&#x89C6;&#x5B83;&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x2014;&#x2014;&#x5C31;&#x5982;Intent&#x91CC;&#x6709;FLAG_ACTIVITY_NEW_TASK&#x6807;&#x8BC6;&#x4E00;&#x6837;&#x3002;&#x5728;&#x5176;&#x4ED6;&#x7684;&#x65B9;&#x9762;&#xFF0C;singleInstance&#x548C;singleTask&#x4E00;&#x6837;&#x7684;&#x3002;<br>&#x5176;&#x4ED6;&#x4E09;&#x4E2A;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x6709;&#x591A;&#x4E2A;Activity&#x5728;&#x4E00;&#x4E2A;task&#x91CC;&#xFF0C;&#x4E00;&#x4E2A;singleTask&#x5C5E;&#x6027;&#x7684;Activity&#x603B;&#x662F;&#x4E00;&#x4E2A;task&#x91CC;&#x7684;root Activity&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x53E6;&#x5916;&#x7684;Activity&#x5E76;&#x4E14;&#x5C06;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;Activity&#x88C5;&#x8FDB;&#x540C;&#x4E00;&#x4E2A;task&#x91CC;&#xFF0C;standard&#x548C;singleTop&#x5C5E;&#x6027;&#x7684;Activity&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#x5728;task&#x7684;&#x4EFB;&#x4F55;&#x4F4D;&#x7F6E;&#x3002;</p>
-<p>4.&#x5BF9;&#x4E8E;&#x9ED8;&#x8BA4;&#x7684;standard&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x4F1A;&#x751F;&#x6210;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#x6765;&#x5904;&#x7406;&#x6BCF;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Intent&#x3002;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Intent&#x3002;<br>&#x5BF9;singleTop&#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5B9E;&#x4F8B;&#x5728;&#x76EE;&#x6807;task&#x7684;&#x6808;&#x9876;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x91CD;&#x7528;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;Intent&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x5B58;&#x5728;&#x4F46;&#x662F;&#x4E0D;&#x5728;&#x6808;&#x9876;&#xFF0C;&#x90A3;&#x5C31;&#x4E0D;&#x91CD;&#x7528;&#x4ED6;&#xFF0C;&#x800C;&#x662F;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;Intent&#x5E76;&#x4E14;&#x5C06;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x6808;&#x3002;</p>
-<h3 id="task&#x4F7F;&#x7528;&#x6548;&#x679C;"><a href="#task&#x4F7F;&#x7528;&#x6548;&#x679C;" class="headerlink" title="task&#x4F7F;&#x7528;&#x6548;&#x679C;"></a>task&#x4F7F;&#x7528;&#x6548;&#x679C;</h3><p><strong>1.taskOpenAnimation taskOpenExitAnimation<br>taskCloseEnterAnimation taskCloseExitAnimation</strong></p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/task_open_close_enter_exit.gif" alt="task_open_close_enter_exit.gif"></p>
-<p>gif&#x4E2D;&#x4E24;&#x4E2A;Activity&#x7684;launchMode&#x90FD;&#x662F;singleInstance&#xFF0C;&#x6BCF;&#x4E2A;activity&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x4F1A;&#x5728;&#x65B0;&#x7684;Task&#x4E2D;&#x521B;&#x5EFA;&#x3002;</p>
-<p><strong>2.taskToFrontEnterAnimation taskToFrontExitAnimation</strong></p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/task_front.gif" alt="task_front.gif"></p>
-<p><strong>3.taskToBackEnterAnimation taskToBackExitAnimation</strong></p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/task_background.gif" alt="task_background.gif"></p>
-<p>&#x901A;&#x8FC7;&#x8C03;&#x7528;moveTaskToBack()&#x63A5;&#x53E3;&#x5C06;&#x5F53;&#x524D;&#x7684;activity&#x653E;&#x5230;&#x6808;&#x9876;&#x540E;&#x9762;&#x53BB;&#x3002;</p>
-<h2 id="Wallpaper-Animation"><a href="#Wallpaper-Animation" class="headerlink" title="Wallpaper Animation"></a>Wallpaper Animation</h2><table>
-<thead>
-<tr>
-<th>WallPaper Animation</th>
-<th>Appliacation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>wallpaperOpenEnterAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5728;WallPaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x4F46;&#x5F53;&#x524D;&#x7684;Activity&#x4E0D;&#x5728;wallpaper&#x4E0A;&#x65F6;&#xFF0C;&#x65B0;&#x6253;&#x5F00;&#x7684;Activity&#x6240;&#x505A;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperOpenExitAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5728;WallPaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x4F46;&#x5F53;&#x524D;&#x7684;Activity&#x4E0D;&#x5728;wallpaper&#x4E0A;&#x65F6;&#xFF0C;&#x4E0D;&#x5E26;WallPaper&#x7684;Activity&#x6240;&#x505A;&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperCloseEnterAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x4E0D;&#x518D;wallpaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x4F46;&#x5F53;&#x524D;&#x7684;Activity&#x5728;wallpaper&#x4E0A;&#x65F6;&#xFF0C;&#x4E0D;&#x5E26;wallpaper&#x7684;Activity&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperCloseExitAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x4E0D;&#x5728;wallpaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x4F46;&#x5F53;&#x524D;&#x7684;Activity&#x5728;wallpaper&#x4E0A;&#x65F6;&#xFF0C;&#x5E26;wallpaper&#x7684;Activity&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperIntraOpenEnterAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5728;WallPaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x5F53;&#x524D;&#x7684;Activity&#x4E5F;&#x5728;wallpaper&#x4E0A;&#xFF0C;&#x65B0;&#x6253;&#x5F00;&#x7684;Activity&#x6240;&#x505A;&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperIntraOpenExitAnimation</td>
-<td>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5728;WallPaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;Activity&#xFF0C;&#x5F53;&#x524D;&#x7684;Activity&#x4E5F;&#x5728;wallpaper&#x4E0A;&#x65F6;&#xFF0C;&#x5F53;&#x524D;&#x7684;Activity&#x6240;&#x505A;&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperIntraCloseEnterAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;&#x7684;&#x5728;Wallpaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;activity&#x65F6;&#xFF0C;&#x4E0B;&#x4E00;&#x4E2A;&#x8FDB;&#x5165;&#x7684;activity&#x4E5F;&#x8FD0;&#x884C;&#x5728;Wallpaper&#x4E0A;&#xFF0C;&#x6B64;&#x65F6;&#x4E0B;&#x4E00;&#x4E2A;activity&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>wallpaperIntraCloseExitAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;&#x7684;&#x5728;Wallpaper&#x4E0A;&#x8FD0;&#x884C;&#x7684;activity&#x65F6;&#xFF0C;&#x4E0B;&#x4E00;&#x4E2A;&#x8FDB;&#x5165;&#x7684;activity&#x4E5F;&#x8FD0;&#x884C;&#x5728;Wallpaper&#x4E0A;&#xFF0C;&#x6B64;&#x65F6;&#x5F53;&#x524D;activity&#x7684;&#x8FDB;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-</tbody>
-</table>
-<p>&#x4F7F;&#x7528;Wallpaper&#x7684;&#x52A8;&#x753B;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;activity&#x7684;&#x4E3B;&#x9898;&#x662F;&#x663E;&#x793A;wallpaper&#x7684;&#x4E3B;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x81EA;android:Theme.Wallpaper,&#x6216;&#x8005;&#x5728;Theme&#x4E2D;&#x8BBE;&#x7F6E;&#x58C1;&#x7EB8;&#x53EF;&#x89C1;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;WpSecondActivity&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;android:Theme.Wallpaper&quot;</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowAnimationStyle&quot;</span>&gt;</span>@style/WpSecondAnimation<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>&#x7136;&#x540E;&#x5C06;Theme&#x5E94;&#x7528;&#x5230;Activity&#x7684;&#x4E3B;&#x9898;&#x4E0A;&#x53BB;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4F1A;&#x5BFC;&#x81F4;&#x6CA1;&#x6709;ActionBar&#x3002;<br>&#x6216;&#x8005;&#x5728;onCreate()&#x51FD;&#x6570;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> WallpaperManager wallpaperManager = WallpaperManager.getInstance(<span class="keyword">this</span>); </div><div class="line"><span class="keyword">final</span> Drawable wallpaperDrawable = wallpaperManager.getDrawable();</div><div class="line"><span class="keyword">this</span>.getWindow().setBackgroundDrawable(wallpaperDrawable);</div></pre></td></tr></table></figure></p>
-<h3 id="&#x52A8;&#x753B;&#x6548;&#x679C;&#x5C55;&#x793A;"><a href="#&#x52A8;&#x753B;&#x6548;&#x679C;&#x5C55;&#x793A;" class="headerlink" title="&#x52A8;&#x753B;&#x6548;&#x679C;&#x5C55;&#x793A;"></a>&#x52A8;&#x753B;&#x6548;&#x679C;&#x5C55;&#x793A;</h3><p>1.wallpaperOpenEnterAnimation wallpaperOpenExitAnimation<br>    wallpaperCloseEnterAnimation wallpaperCloseExitAnimation </p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/wallpaper_open_close_enter_exit.gif" alt="wallpaper_open_close_enter_exit.gif"></p>
-<p>2.wallpaperIntraOpenEnterAnimation wallpaperIntraOpenExitAnimation<br>    wallpaperIntraCloseEnterAnimation wallpaperIntraCloseExitAnimation</p>
-<p><img src="/2016/08/08/Android-System-Animation-Usage/wallpaper_intra.gif" alt="wallpaper_intra.gif"></p>
-<h2 id="Fragment-Animation"><a href="#Fragment-Animation" class="headerlink" title="Fragment Animation"></a>Fragment Animation</h2><p>Fragment&#x5207;&#x6362;&#x52A8;&#x753B;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
-<table>
-<thead>
-<tr>
-<th>Fragment Animation</th>
-<th>Appliacation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fragmentOpenEnterAnimation</td>
-<td>&#x66FF;&#x6362;&#x5F53;&#x524D;&#x7684;fragment&#x65F6;&#xFF0C;&#x65B0;&#x7684;fragment&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>fragmentOpenExitAnimation</td>
-<td>&#x66FF;&#x6362;&#x5F53;&#x524D;&#x7684;fragment&#x65F6;&#xFF0C;&#x5F53;&#x524D;fragment&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>fragmentCloseEnterAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;&#x7684;fragment&#x65F6;&#xFF0C;&#x4E0B;&#x4E00;&#x4E2A;fragment&#x7684;&#x8FDB;&#x5165;&#x52A8;&#x753B;</td>
-</tr>
-<tr>
-<td>fragmentCloseExitAnimation</td>
-<td>&#x5173;&#x95ED;&#x5F53;&#x524D;&#x7684;fragment&#x65F6;&#xFF0C;&#x5F53;&#x524D;fragment&#x7684;&#x9000;&#x51FA;&#x52A8;&#x753B;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="&#x6548;&#x679C;&#x5C55;&#x793A;"><a href="#&#x6548;&#x679C;&#x5C55;&#x793A;" class="headerlink" title="&#x6548;&#x679C;&#x5C55;&#x793A;"></a>&#x6548;&#x679C;&#x5C55;&#x793A;</h3><p><img src="/2016/08/08/Android-System-Animation-Usage/fragment.gif" alt="fragment.gif"></p>
-<p>gif&#x4E2D;&#x70B9;&#x51FB;ADD&#x6309;&#x94AE;&#xFF0C;&#x6DFB;&#x52A0;&#x65B0;&#x7684;fragment&#xFF0C;&#x6F14;&#x793A;fragmentOpen&#x7684;Enter&#x548C;Exit&#x52A8;&#x753B;&#xFF0C;&#x6309;&#x4E0B;&#x624B;&#x673A;&#x7684;BACK&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x5F53;&#x524D;&#x7684;fragment&#x9000;&#x51FA;&#xFF0C;&#x6F14;&#x793A;fragmentClose&#x7684;Open&#x548C;Exit&#x52A8;&#x753B;&#x3002;<br>&#x4EE3;&#x7801;&#x4E2D;&#x662F;&#x5982;&#x4E0B;&#x5982;&#x4E0B;&#x52A0;&#x8F7D;&#x52A8;&#x753B;&#x7684;&#xFF1A;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addFragment</span><span class="params">()</span> </span>{</div><div class="line">        FragmentTransaction fragmentTransaction = manager.beginTransaction();</div><div class="line">        fragmentTransaction.setCustomAnimations(R.anim.fragment_open_enter_animation, R.anim.fragment_open_exit_animation,</div><div class="line">                                                R.anim.fragment_close_enter_animation, R.anim.fragment_close_exit_animation);</div><div class="line">        fragmentTransaction.replace(R.id.fragment_container, <span class="keyword">new</span> BlankFragment());</div><div class="line">        fragmentTransaction.addToBackStack(<span class="keyword">null</span>); <span class="comment">//commit&#x4E4B;&#x524D;&#x54E6;&#xFF01;</span></div><div class="line">        fragmentTransaction.commit();</div><div class="line">    }</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/08/Android-System-Animation-Usage/" data-id="ciropwlht0001w2cfls57wd7j" class="article-share-link">Share</a>
-      
-      
-    </footer>
   </div>
   
-</article>
+  <footer id="footer" class="home-footer footer">
+    <div id="copyright" class="copyright">
+      &copy; 2016 Jack Wang  Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme &copy; <a href="https://github.com/geekplux" target="_blank">GeekPlux</a>
 
-
-  
-    <article id="post-glsl语言基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/08/glsl语言基础/" class="article-date">
-  <time datetime="2016-08-08T01:59:59.000Z" itemprop="datePublished">2016-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/08/glsl语言基础/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="GLSL&#x8BED;&#x8A00;&#x57FA;&#x7840;"><a href="#GLSL&#x8BED;&#x8A00;&#x57FA;&#x7840;" class="headerlink" title="GLSL&#x8BED;&#x8A00;&#x57FA;&#x7840;"></a>GLSL&#x8BED;&#x8A00;&#x57FA;&#x7840;</h1><h2 id="&#x6570;&#x636E;&#x7C7B;&#x578B;"><a href="#&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>&#x6570;&#x636E;&#x7C7B;&#x578B;</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span>  <span class="keyword">bool</span>  <span class="keyword">int</span>    &#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</div><div class="line">vec2                &#x5305;&#x542B;&#x4E86;<span class="number">2</span>&#x4E2A;&#x6D6E;&#x70B9;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">vec3                &#x5305;&#x542B;&#x4E86;<span class="number">3</span>&#x4E2A;&#x6D6E;&#x70B9;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">vec4                &#x5305;&#x542B;&#x4E86;<span class="number">4</span>&#x4E2A;&#x6D6E;&#x70B9;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">ivec2               &#x5305;&#x542B;&#x4E86;<span class="number">2</span>&#x4E2A;&#x6574;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">ivec3               &#x5305;&#x542B;&#x4E86;<span class="number">3</span>&#x4E2A;&#x6574;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">ivec4               &#x5305;&#x542B;&#x4E86;<span class="number">4</span>&#x4E2A;&#x6574;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">bvec2               &#x5305;&#x542B;&#x4E86;<span class="number">2</span>&#x4E2A;&#x5E03;&#x5C14;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">bvec3               &#x5305;&#x542B;&#x4E86;<span class="number">3</span>&#x4E2A;&#x5E03;&#x5C14;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">bvec4               &#x5305;&#x542B;&#x4E86;<span class="number">4</span>&#x4E2A;&#x5E03;&#x5C14;&#x6570;&#x7684;&#x5411;&#x91CF;</div><div class="line">mat2                <span class="number">2</span>*<span class="number">2</span>&#x7EF4;&#x77E9;&#x9635;</div><div class="line">mat3                <span class="number">3</span>*<span class="number">3</span>&#x7EF4;&#x77E9;&#x9635;</div><div class="line">mat4                <span class="number">4</span>*<span class="number">4</span>&#x7EF4;&#x77E9;&#x9635;</div><div class="line">sampler1D           <span class="number">1</span>D&#x7EB9;&#x7406;&#x91C7;&#x6837;&#x5668;</div><div class="line">sampler2D           <span class="number">2</span>D&#x7EB9;&#x7406;&#x91C7;&#x6837;&#x5668;</div><div class="line">sampler3D           <span class="number">3</span>D&#x7EB9;&#x7406;&#x91C7;&#x6837;&#x5668;</div></pre></td></tr></table></figure>
-<h1 id="&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><a href="#&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;" class="headerlink" title="&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"></a>&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</h1><h2 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;"><a href="#&#x793A;&#x4F8B;&#x4EE3;&#x7801;" class="headerlink" title="&#x793A;&#x4F8B;&#x4EE3;&#x7801;"></a>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">uniform mat4 uMVPMatrix;             <span class="comment">// &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F20;&#x5165;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x603B;&#x53D8;&#x6362;&#x77E9;&#x9635;</span></div><div class="line">attribute vec4 aPosition;             <span class="comment">// &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F20;&#x5165;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x9876;&#x70B9;&#x4F4D;&#x7F6E;</span></div><div class="line">attribute vec2 aTextureCoord;          <span class="comment">// &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F20;&#x5165;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x9876;&#x70B9;&#x7EB9;&#x7406;&#x5750;&#x6807;</span></div><div class="line">attribute vec4 aColor                  <span class="comment">// &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F20;&#x5165;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x9876;&#x70B9;&#x989C;&#x8272;&#x53D8;&#x91CF;</span></div><div class="line">varying vec4 vColor                  <span class="comment">// &#x7528;&#x4E8E;&#x4F20;&#x9012;&#x7ED9;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x7684;&#x9876;&#x70B9;&#x989C;&#x8272;&#x6570;&#x636E;</span></div><div class="line">varying vec2 vTextureCoord;          <span class="comment">// &#x7528;&#x4E8E;&#x4F20;&#x9012;&#x7ED9;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x7684;&#x9876;&#x70B9;&#x7EB9;&#x7406;&#x6570;&#x636E;</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">{</div><div class="line">    gl_Position = uMVPMatrix * aPosition; <span class="comment">// &#x6839;&#x636E;&#x603B;&#x53D8;&#x6362;&#x77E9;&#x9635;&#x8BA1;&#x7B97;&#x6B64;&#x6B21;&#x7ED8;&#x5236;&#x6B64;&#x9876;&#x70B9;&#x4F4D;&#x7F6E;</span></div><div class="line">    vColor = aColor;               <span class="comment">// &#x5C06;&#x9876;&#x70B9;&#x989C;&#x8272;&#x6570;&#x636E;&#x4F20;&#x5165;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;</span></div><div class="line">    vTextureCoord = aTextureCoord;   <span class="comment">// &#x5C06;&#x63A5;&#x6536;&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x4F20;&#x9012;&#x7ED9;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;</span></div><div class="line">}</div></pre></td></tr></table></figure>
-<h3 id="uniform&#x53D8;&#x91CF;"><a href="#uniform&#x53D8;&#x91CF;" class="headerlink" title="uniform&#x53D8;&#x91CF;"></a>uniform&#x53D8;&#x91CF;</h3><p>uniform&#x53D8;&#x91CF;&#x662F;&#x5916;&#x90E8;application&#x7A0B;&#x5E8F;&#x4F20;&#x9012;&#x7ED9;&#xFF08;vertex&#x548C;fragment&#xFF09;shader&#x7684;&#x53D8;&#x91CF;&#x3002;<br>&#x56E0;&#x6B64;&#x5B83;&#x662F;application&#x901A;&#x8FC7;&#x51FD;&#x6570;glUniform**&#xFF08;&#xFF09;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x7684;&#x3002;<br>&#x5728;&#xFF08;vertex&#x548C;fragment&#xFF09;shader&#x7A0B;&#x5E8F;&#x5185;&#x90E8;&#xFF0C;uniform&#x53D8;&#x91CF;&#x5C31;&#x50CF;&#x662F;C&#x8BED;&#x8A00;&#x91CC;&#x9762;&#x7684;&#x5E38;&#x91CF;&#xFF08;const &#xFF09;&#xFF0C;<br>&#x5B83;&#x4E0D;&#x80FD;&#x88AB;shader&#x7A0B;&#x5E8F;&#x4FEE;&#x6539;&#x3002;&#xFF08;shader&#x53EA;&#x80FD;&#x7528;&#xFF0C;&#x4E0D;&#x80FD;&#x6539;&#xFF09;</p>
-<p>&#x5982;&#x679C;uniform&#x53D8;&#x91CF;&#x5728;vertex&#x548C;fragment&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF0C;<br>&#x5219;&#x5B83;&#x53EF;&#x4EE5;&#x5728;vertex&#x548C;fragment&#x5171;&#x4EAB;&#x4F7F;&#x7528;&#x3002;<br>&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x88AB;vertex&#x548C;fragment shader&#x5171;&#x4EAB;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF09;</p>
-<h3 id="attribute&#x53D8;&#x91CF;"><a href="#attribute&#x53D8;&#x91CF;" class="headerlink" title="attribute&#x53D8;&#x91CF;"></a>attribute&#x53D8;&#x91CF;</h3><p>attribute&#x53D8;&#x91CF;&#x662F;&#x53EA;&#x80FD;&#x5728;vertex shader&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x3002;<br>&#xFF08;&#x5B83;&#x4E0D;&#x80FD;&#x5728;fragment shader&#x4E2D;&#x58F0;&#x660E;attribute&#x53D8;&#x91CF;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x88AB;fragment shader&#x4E2D;&#x4F7F;&#x7528;&#xFF09;<br>&#x4E00;&#x822C;&#x7528;attribute&#x53D8;&#x91CF;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E9B;&#x9876;&#x70B9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;&#x9876;&#x70B9;&#x5750;&#x6807;&#xFF0C;&#x6CD5;&#x7EBF;&#xFF0C;&#x7EB9;&#x7406;&#x5750;&#x6807;&#xFF0C;&#x9876;&#x70B9;&#x989C;&#x8272;&#x7B49;&#x3002;</p>
-<p>&#x5728;application&#x4E2D;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x51FD;&#x6570;glBindAttribLocation()&#x6765;&#x7ED1;&#x5B9A;&#x6BCF;&#x4E2A;attribute&#x53D8;&#x91CF;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;<br>&#x7136;&#x540E;&#x7528;&#x51FD;&#x6570;glVertexAttribPointer()&#x4E3A;&#x6BCF;&#x4E2A;attribute&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x3002;</p>
-<h3 id="varying&#x53D8;&#x91CF;"><a href="#varying&#x53D8;&#x91CF;" class="headerlink" title="varying&#x53D8;&#x91CF;"></a>varying&#x53D8;&#x91CF;</h3><p>varying&#x53D8;&#x91CF;&#x662F;vertex&#x548C;fragment shader&#x4E4B;&#x95F4;&#x505A;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7528;&#x7684;&#x3002;<br>&#x4E00;&#x822C;vertex shader&#x4FEE;&#x6539;varying&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;fragment shader&#x4F7F;&#x7528;&#x8BE5;varying&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;<br>&#x56E0;&#x6B64;varying&#x53D8;&#x91CF;&#x5728;vertex&#x548C;fragment shader&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x58F0;&#x660E;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;<br>application&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6B64;&#x53D8;&#x91CF;&#x3002;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Vertex shader</span></div><div class="line">uniform mat4 u_matViewProjection;</div><div class="line">attribute vec4 a_position;</div><div class="line">attribute vec2 a_texCoord0;</div><div class="line">varying vec2 v_texCoord; <span class="comment">// Varying in vertex shader</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">{</div><div class="line">gl_Position = u_matViewProjection * a_position;</div><div class="line">v_texCoord = a_texCoord0;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Fragment shader</span></div><div class="line">precision mediump <span class="keyword">float</span>;</div><div class="line">varying vec2 v_texCoord; <span class="comment">// Varying in fragment shader</span></div><div class="line">uniform sampler2D s_baseMap;</div><div class="line">uniform sampler2D s_lightMap;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">{</div><div class="line">vec4 baseColor;</div><div class="line">vec4 lightColor;</div><div class="line">baseColor = texture2D(s_baseMap, v_texCoord);</div><div class="line">lightColor = texture2D(s_lightMap, v_texCoord);</div><div class="line">gl_FragColor = baseColor * (lightColor + <span class="number">0.25</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
-<h3 id="gl-Position&#x53D8;&#x91CF;"><a href="#gl-Position&#x53D8;&#x91CF;" class="headerlink" title="gl_Position&#x53D8;&#x91CF;"></a>gl_Position&#x53D8;&#x91CF;</h3><p>gl_Position&#x4E3A;&#x5185;&#x5EFA;&#x53D8;&#x91CF;&#xFF0C;&#x8868;&#x793A;&#x53D8;&#x6362;&#x540E;&#x70B9;&#x7684;&#x7A7A;&#x95F4;&#x4F4D;&#x7F6E;&#x3002; &#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x4ECE;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x83B7;&#x5F97;<br>&#x539F;&#x59CB;&#x7684;&#x9876;&#x70B9;&#x4F4D;&#x7F6E;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x4E9B;&#x539F;&#x59CB;&#x7684;&#x9876;&#x70B9;&#x6570;&#x636E;&#x5728;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x7ECF;&#x8FC7;&#x5E73;&#x79FB;&#x3001;&#x65CB;&#x8F6C;&#x3001;&#x7F29;&#x653E;&#x7B49;&#x6570;&#x5B66;&#x53D8;&#x6362;&#x540E;&#xFF0C;<br>&#x751F;&#x6210;&#x65B0;&#x7684;&#x9876;&#x70B9;&#x4F4D;&#x7F6E;&#x3002;<br>&#x65B0;&#x7684;&#x9876;&#x70B9;&#x4F4D;&#x7F6E;&#x901A;&#x8FC7;&#x5728;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x5199;&#x5165;gl_Position&#x4F20;&#x9012;&#x5230;&#x6E32;&#x67D3;&#x7BA1;&#x7EBF;&#x7684;&#x540E;&#x7EE7;&#x9636;&#x6BB5;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x3002;</p>
-<h3 id="&#x4E00;&#x5F20;&#x56FE;&#x5C55;&#x793A;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;"><a href="#&#x4E00;&#x5F20;&#x56FE;&#x5C55;&#x793A;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;" class="headerlink" title="&#x4E00;&#x5F20;&#x56FE;&#x5C55;&#x793A;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;"></a>&#x4E00;&#x5F20;&#x56FE;&#x5C55;&#x793A;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;</h3><p><img src="/2016/08/08/glsl&#x8BED;&#x8A00;&#x57FA;&#x7840;/vertex.jpeg" alt="vertexShader"></p>
-<h3 id="in&#x53D8;&#x91CF;"><a href="#in&#x53D8;&#x91CF;" class="headerlink" title="in&#x53D8;&#x91CF;"></a>in&#x53D8;&#x91CF;</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#version 330  </span></div><div class="line">layout(location = <span class="number">0</span>) in vec3 attrib_position;  </div><div class="line">layout(location = <span class="number">1</span>) in vec2 attrib_texcoord;  </div><div class="line">layout(location = <span class="number">2</span>) in vec3 attrib_normal;  </div><div class="line">layout(location = <span class="number">3</span>) in <span class="keyword">int</span>  attrib_clustercount;</div></pre></td></tr></table></figure>
-<p>&#x5728;&#x4E0A;&#x9762;&#x7684;Vertex Program&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#xFF08;#version 330&#xFF09;&#xFF0C;<br>&#x8868;&#x660E;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x4F7F;&#x7528;&#x7684;GLSL&#x7248;&#x672C;&#x662F;GLSL3.3&#xFF0C;&#x4EE5;&#x533A;&#x522B;&#x4E8E;&#x4EE5;&#x524D;&#x7684;&#x7248;&#x672C;&#x5E76;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;GLSL3.3&#x7684;&#x529F;&#x80FD;&#x3002;<br>&#x5728;&#x8FC7;&#x53BB;&#xFF0C;OpenGL&#x7684;&#x7248;&#x672C;&#x548C;GLSL&#x7248;&#x672C;&#x662F;&#x4E0D;&#x7EDF;&#x4E00;&#x7684;&#xFF08;&#x524D;&#x6587;&#x4E2D;&#x7684;GL2.2&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x662F;GLSL1.2&#xFF0C;<br>&#x800C;&#x540E;&#x6765;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x662F;GL3.0-GLSL1.3&#xFF0C;GL3.1-GLSL1.4&#xFF0C;GL3.2-GLSL1.5&#xFF09;&#xFF0C;<br>&#x76F4;&#x5230;2010&#x5E74;OpenGL3.3/4.0&#x89C4;&#x8303;&#x7684;&#x63D0;&#x51FA;&#xFF0C;khronos&#x59D4;&#x5458;&#x4F1A;&#x51B3;&#x5B9A;&#x8BA9;&#x4E24;&#x8005;&#x7248;&#x672C;&#x7EDF;&#x4E00;&#xFF0C;<br>&#x6240;&#x4EE5;&#x5C31;&#x6709;&#x4E86;&#x73B0;&#x5728;&#x672C;&#x535A;&#x5BA2;&#x6240;&#x4F7F;&#x7528;&#x7684;OpenGL3.3-GLSL3.3&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#xFF08;&#x6CE8;&#xFF0C;ShaderModel4.0&#x7684;&#x663E;&#x5361;&#x53EF;&#x8FBE;&#x5230;&#x7684;&#x6700;&#x9AD8;&#x7248;&#x672C;&#xFF09;&#x3002;</p>
-<p>&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x51E0;&#x884C;&#x58F0;&#x660E;&#x4E86;4&#x4E2A;attribute&#x53D8;&#x91CF;&#x3002;<br>&#x5728;GL2.x&#x4E2D;&#x4E00;&#x4E2A;attribute&#x53D8;&#x91CF;&#x901A;&#x5E38;&#x662F;&#x201C;attribute vec3 attrib_position;&#x201D;&#x8FD9;&#x6837;&#x6765;&#x8868;&#x793A;&#xFF0C;<br>&#x5728;GL3.x&#x4E2D;&#xFF0C;&#x5E9F;&#x5F03;&#x4E86;attribute&#x5173;&#x952E;&#x5B57;&#xFF08;&#x4EE5;&#x53CA;varying&#x5173;&#x952E;&#x5B57;&#xFF09;&#xFF0C;<br>&#x5C5E;&#x6027;&#x53D8;&#x91CF;&#x7EDF;&#x4E00;&#x7528;in/out&#x4F5C;&#x4E3A;&#x524D;&#x7F6E;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;Shader stage&#x6765;&#x8BF4;&#xFF0C;<br>in&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#x5C5E;&#x6027;&#xFF0C;out&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x7528;&#x4E8E;&#x8F93;&#x51FA;&#x7684;&#x5C5E;&#x6027;&#x3002;<br>&#x8FD9;&#x91CC;&#xFF0C;attribute&#x53D8;&#x91CF;&#x4F5C;&#x4E3A;Vertex Shader&#x7684;&#x9876;&#x70B9;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x90FD;&#x7528;in&#x6807;&#x8BB0;&#x3002;<br>&#x53E6;&#x5916;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;layout&#x5173;&#x952E;&#x5B57;<br>&#xFF08;&#x901A;&#x5E38;&#x662F;layout(layoutAttrib1=XXX, layoutAttrib2=XXX, &#x2026;)&#x8FD9;&#x6837;&#x7684;&#x5F62;&#x5F0F;&#xFF09;&#x3002;<br>&#x8FD9;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x7528;&#x4E8E;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x53D8;&#x91CF;&#x524D;&#xFF0C;&#x7528;&#x4E8E;&#x663E;&#x5F0F;&#x6807;&#x660E;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x4E9B;&#x5E03;&#x5C40;&#x5C5E;&#x6027;&#xFF0C;<br>&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x663E;&#x5F0F;&#x8BBE;&#x5B9A;&#x4E86;&#x8BE5;attribute&#x53D8;&#x91CF;&#x7684;&#x4F4D;&#x7F6E;&#x503C;(location)&#xFF0C;<br>&#x5176;&#x4F5C;&#x7528;&#x8DDF;ShaderProgram(&#x7740;&#x8272;&#x7A0B;&#x5E8F;)&#x94FE;&#x63A5;&#x524D;<br>&#x8C03;&#x7528;glBindAttribLocation&#x6765;&#x8BBE;&#x5B9A;atribute&#x53D8;&#x91CF;&#x7684;&#x4F4D;&#x7F6E;&#x503C;&#x662F;&#x7B49;&#x6548;&#x7684;&#x3002;</p>
-<p>&#x4E3A;&#x4EC0;&#x4E48;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x66F4;&#x597D;&#x5462;&#xFF1F;&#x5176;&#x4E00;&#x5F53;&#x7136;&#x662F;&#x7F16;&#x7801;&#x91CF;&#x51CF;&#x5C11;&#x4E86;&#xFF0C;<br>&#x4E8C;&#x6765;&#x4E5F;&#x907F;&#x514D;&#x4E86;&#x53BB;Get&#x67D0;&#x4E2A;attribute&#x7684;location&#x5E26;&#x6765;&#x7684;&#x5F00;&#x9500;&#xFF0C;<br>&#x4E09;&#x6765;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x91CD;&#x5B9A;&#x4E49;&#x4E86;OpenGL&#x548C;GLSL&#x4E4B;&#x95F4;attribute&#x53D8;&#x91CF;&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x3002;<br>&#x8FC7;&#x53BB;&#x6211;&#x4EEC;&#x7684;OpenGL&#x7AEF;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x8981;&#x77E5;&#x9053;GLSL&#x7AEF;&#x67D0;&#x4E2A;attribute&#x7684;&#x540D;&#x5B57;&#xFF0C;<br>&#x624D;&#x80FD;&#x8BBE;&#x7F6E;/&#x83B7;&#x5F97;&#x5176;&#x4F4D;&#x7F6E;&#x503C;&#xFF0C;&#x5982;&#x4ECA;&#x4E24;&#x8005;&#x53EA;&#x9700;&#x8981;location&#x5BF9;&#x5E94;&#x8D77;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x7ED8;&#x5236;&#x65F6;&#x9876;&#x70B9;&#x5C5E;&#x6027;&#x6D41;&#x7684;&#x4F20;&#x9012;&#x4E86;&#x3002;<br>&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5728;ShaderProgram&#x7684;compile&#x548C;link&#x4E4B;&#x95F4;&#x63D2;&#x5165;&#x4EE3;&#x7801;&#x4E5F;&#x66F4;&#x65B9;&#x4FBF;&#x4E8E;&#x5176;&#x6A21;&#x5757;&#x5316;&#x3002;</p>
-<h3 id="out&#x53D8;&#x91CF;"><a href="#out&#x53D8;&#x91CF;" class="headerlink" title="out&#x53D8;&#x91CF;"></a>out&#x53D8;&#x91CF;</h3><p>&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#x4E3A;&#x7740;&#x8272;&#x5668;&#x9636;&#x6BB5;&#x7684;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#xFF0C;&#x610F;&#x601D;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x662F;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#xFF0C;&#x80AF;&#x80FD;&#x4F1A;&#x7528;&#x5230;<br>&#x4E0B;&#x4E00;&#x4E2A;&#x4F5C;&#x8272;&#x5668;&#x7684;&#x8F93;&#x5165;&#x53D8;&#x91CF;</p>
-<h1 id="&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><a href="#&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;" class="headerlink" title="&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"></a>&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</h1><h2 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;-1"><a href="#&#x793A;&#x4F8B;&#x4EE3;&#x7801;-1" class="headerlink" title="&#x793A;&#x4F8B;&#x4EE3;&#x7801;"></a>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">precision mediump <span class="keyword">float</span>;     <span class="comment">// &#x8BBE;&#x7F6E;&#x5DE5;&#x4F5C;&#x7CBE;&#x5EA6;</span></div><div class="line">varying vec4 vColor;         <span class="comment">// &#x63A5;&#x6536;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8FC7;&#x6765;&#x7684;&#x9876;&#x70B9;&#x989C;&#x8272;&#x6570;&#x636E;</span></div><div class="line">varying vec2 vTextureCoord;  <span class="comment">// &#x63A5;&#x6536;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8FC7;&#x6765;&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807;</span></div><div class="line">uniform sampler2D sTexture;  <span class="comment">// &#x7EB9;&#x7406;&#x91C7;&#x6837;&#x5668;&#xFF0C;&#x4EE3;&#x8868;&#x4E00;&#x5E45;&#x7EB9;&#x7406;</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">{                                                                                   </div><div class="line">    gl_FragColor = texture2D(sTexture, vTextureCoord) * vColor;<span class="comment">// &#x8FDB;&#x884C;&#x7EB9;&#x7406;&#x91C7;&#x6837;</span></div><div class="line">}</div></pre></td></tr></table></figure>
-<p>##&#x57FA;&#x672C;&#x4ECB;&#x7ECD;<br>&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x662F;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x7247;&#x5143;&#x503C;&#x53CA;&#x5176;&#x76F8;&#x5173;&#x8054;&#x6570;&#x636E;&#x7684;&#x53EF;&#x7F16;&#x7A0B;&#x5355;&#x5143;&#xFF0C;<br>&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x53EF;&#x6267;&#x884C;&#x7EB9;&#x7406;&#x7684;&#x8BBF;&#x95EE;&#x3001;&#x989C;&#x8272;&#x7684;&#x6C47;&#x603B;&#x3001;&#x96FE;&#x5316;&#x7B49;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x7247;&#x5143;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;<br>&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x66FF;&#x4EE3;&#x4E86;&#x7EB9;&#x7406;&#x3001;&#x989C;&#x8272;&#x6C42;&#x548C;&#x3001;&#x96FE;&#x4EE5;&#x53CA;Alpha&#x6D4B;&#x8BD5;&#xFF0C;<br>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x7684;&#x3002;<br><img src="/2016/08/08/glsl&#x8BED;&#x8A00;&#x57FA;&#x7840;/fragment.jpeg" alt="fragmentShader"></p>
-<p>(1&#xFF09;varying&#x6307;&#x7684;&#x662F;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x4F20;&#x9012;&#x5230;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x7684;&#x6570;&#x636E;&#x53D8;&#x91CF;</p>
-<p>(2&#xFF09;gl_FragColor&#x4E3A;&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#x7684;&#x7247;&#x5143;&#x989C;&#x8272;&#x503C;&#xFF0C;<br>&#x6B64;&#x989C;&#x8272;&#x503C;&#x5C06;&#x9001;&#x5165;&#x6E32;&#x67D3;&#x7BA1;&#x7EBF;&#x7684;&#x540E;&#x7EE7;&#x9636;&#x6BB5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
-<h2 id="precision&#x53D8;&#x91CF;"><a href="#precision&#x53D8;&#x91CF;" class="headerlink" title="precision&#x53D8;&#x91CF;"></a>precision&#x53D8;&#x91CF;</h2><p>&#x8BE5;&#x53D8;&#x91CF;&#x662F;&#x63CF;&#x8FF0;&#x7CBE;&#x5EA6;&#x7684;&#x5C5E;&#x6027;<br><img src="/2016/08/08/glsl&#x8BED;&#x8A00;&#x57FA;&#x7840;/2.jpg" alt="precision"><br>&#x6700;&#x540E;&#x662F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x53CA;&#x4F7F;&#x7528;&#x4E2D;&#x7B49;&#x7684;float&#x7CBE;&#x5EA6;</p>
-<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><p><a href="http://www.tuicool.com/articles/VZVJra" target="_blank" rel="external">shader&#x76F8;&#x5173;</a></p>
-<p><a href="http://blog.csdn.net/candycat1992/article/details/8830894" target="_blank" rel="external">opengl&#x5411;shader&#x4E2D;&#x4F20;&#x9012;&#x6570;&#x636E;</a></p>
-<p><a href="http://blog.csdn.net/shenshen211/article/details/51802700" target="_blank" rel="external">GLSL vary&#x3001;atrribute&#x3001;in&#x3001;out&#x7684;&#x533A;&#x522B;</a></p>
-<p><a href="http://www.tuicool.com/articles/NVNvmaR" target="_blank" rel="external">GLSL&#x8BED;&#x6CD5;</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/08/glsl语言基础/" data-id="ciropwlho0000w2cfxv8m03mm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/08/hello-world/" class="article-date">
-  <time datetime="2016-08-08T01:59:59.000Z" itemprop="datePublished">2016-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/08/hello-world/" data-id="ciropwlhx0002w2cfjs3bmfim" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/08/08/Android-System-Animation-Usage/">Android System Animation Usage</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/08/glsl语言基础/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/08/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 Jack Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+    </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
 
   </div>
 </body>
