@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android System Animation Usage | Aiamjay`s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android系统动画作用介绍安卓系统动画主要包括以下六大类：
+
+Window动画
+Activity动画
+Task动画
+Fragment动画
+Wallpaper动画
+Fragment动画
+
+系统动画的设置系统动画的设置主要有两种方式，一种是通过指定Activity的Theme，在xml文件中定义；另外一种是在代码中进行关联，通过调用相关的接口。后一种方法在下面的介绍中对应的给出说明。使用Theme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android System Animation Usage">
+<meta property="og:url" content="http://yoursite.com/2016/08/08/Android-System-Animation-Usage/index.html">
+<meta property="og:site_name" content="Aiamjay`s Blog">
+<meta property="og:description" content="Android系统动画作用介绍安卓系统动画主要包括以下六大类：
+
+Window动画
+Activity动画
+Task动画
+Fragment动画
+Wallpaper动画
+Fragment动画
+
+系统动画的设置系统动画的设置主要有两种方式，一种是通过指定Activity的Theme，在xml文件中定义；另外一种是在代码中进行关联，通过调用相关的接口。后一种方法在下面的介绍中对应的给出说明。使用Theme">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/window_enter_exit.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/window_show.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/activity_open_close_enter_exit.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/task_open_close_enter_exit.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/task_front.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/task_background.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/wallpaper_open_close_enter_exit.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/wallpaper_intra.gif">
+<meta property="og:image" content="http://yoursite.com/Android-System-Animation-Usage/fragment.gif">
+<meta property="og:updated_time" content="2016-08-14T08:37:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android System Animation Usage">
+<meta name="twitter:description" content="Android系统动画作用介绍安卓系统动画主要包括以下六大类：
+
+Window动画
+Activity动画
+Task动画
+Fragment动画
+Wallpaper动画
+Fragment动画
+
+系统动画的设置系统动画的设置主要有两种方式，一种是通过指定Activity的Theme，在xml文件中定义；另外一种是在代码中进行关联，通过调用相关的接口。后一种方法在下面的介绍中对应的给出说明。使用Theme">
+<meta name="twitter:image" content="http://yoursite.com/Android-System-Animation-Usage/window_enter_exit.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Aiamjay`s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <article id="post-Android-System-Animation-Usage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android System Animation Usage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="Android系统动画作用介绍"><a href="#Android系统动画作用介绍" class="headerlink" title="Android系统动画作用介绍"></a>Android系统动画作用介绍</h1><p>安卓系统动画主要包括以下六大类：</p>
+<ol>
+<li>Window动画</li>
+<li>Activity动画</li>
+<li>Task动画</li>
+<li>Fragment动画</li>
+<li>Wallpaper动画</li>
+<li>Fragment动画</li>
+</ol>
+<h2 id="系统动画的设置"><a href="#系统动画的设置" class="headerlink" title="系统动画的设置"></a>系统动画的设置</h2><p>系统动画的设置主要有两种方式，一种是通过指定Activity的Theme，在xml文件中定义；另外一种是<br>在代码中进行关联，通过调用相关的接口。后一种方法在下面的介绍中对应的给出说明。<br>使用Theme来指定系统动画，首先创建好替换的动画，然后重新赋值Theme的windowAnimationStyle属性，<br>需要自定义一个style，下面给出覆盖系统自带的Activity动画的例子：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;/<span class="name">style</span> <span class="attr">name</span>=<span class="string">"windowAnimation"</span> <span class="attr">parent</span>=<span class="string">"android:Animation.Activity"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--activity的 animation --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityOpenEnterAnimation"</span>&gt;</span>@anim/act_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityOpenExitAnimation"</span>&gt;</span>@anim/act_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityCloseEnterAnimation"</span>&gt;</span>@anim/act_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityCloseExitAnimation"</span>&gt;</span>@anim/act_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后指定到自定义的Theme中替换掉windowAnimationStyle属性。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;/<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;</span>@style/windowAnimation<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最后在AndroidManifest.xml文件中，将Theme关联到Activity。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">".FirstActivity"</span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">"@style/MyTheme"</span></div><div class="line">            <span class="attr">android:launchMode</span>=<span class="string">"standard"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>通过Theme指定系统动画比较方便，应用的场景广泛；但是在有些时候还是需要通过代码来完成，通过代码<br>会在下面的对应的地方进行介绍。</p>
+<h2 id="系统动画"><a href="#系统动画" class="headerlink" title="系统动画"></a>系统动画</h2><h3 id="Window动画"><a href="#Window动画" class="headerlink" title="Window动画"></a>Window动画</h3><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>windowEnterAnimation</td>
+<td>创建Window对象时的进入动画，比如新建Dialog</td>
+</tr>
+<tr>
+<td>windowExitAnimation</td>
+<td>当window对象被remove掉时的退出动画，如Dialog的dismiss()时调用</td>
+</tr>
+<tr>
+<td>windowShowAnimation</td>
+<td>window从INVISIBLE到VISIBLE时的动画，比如按HOME键返回桌面时，应用的window不可见，调用此动画</td>
+</tr>
+<tr>
+<td>windowHideAnimation</td>
+<td>window从VISIBLE到INVISIBLE调用的动画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="动画演示"><a href="#动画演示" class="headerlink" title="动画演示"></a>动画演示</h3><p><strong>windowEnterAnimation和windowExitAnimation</strong></p>
+<p><img src="Android-System-Animation-Usage/window_enter_exit.gif" alt="window_enter_exit"></p>
+<p>这个动画是通过Dialog来演示的，所以在不是通过Theme来使用的，而是通过以下代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Dialog Animation--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"dialogAnimation"</span> <span class="attr">parent</span>=<span class="string">"android:Animation.Dialog"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;</span>@anim/dialog_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;</span>@anim/dialog_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//java 代码</span></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">newDialog</span><span class="params">()</span> </span>&#123;</div><div class="line">        AlertDialog.Builder builder =<span class="keyword">new</span> AlertDialog.Builder(windowFirstActivity.<span class="keyword">this</span>);</div><div class="line">        builder.setMessage(<span class="string">"This is a Dialog"</span>);</div><div class="line">        builder.setTitle(<span class="string">"Dialog"</span>);</div><div class="line">        builder.setPositiveButton(<span class="string">"OK"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                dialog.dismiss();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">final</span> Dialog dia = builder.create();</div><div class="line">        dia.getWindow().setWindowAnimations(R.style.dialogAnimation);</div><div class="line">        dia.show();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>windowShowAnimation</strong></p>
+<p><img src="Android-System-Animation-Usage/window_show.gif" alt="window_show.gif"></p>
+<p>gif中是从另一个应用切换到当前应用触发windowShowAnimation，做的是scale动画。</p>
+<h2 id="Activity动画"><a href="#Activity动画" class="headerlink" title="Activity动画"></a>Activity动画</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activityOpenEnterAnimation</td>
+<td>创建并进入新的activity时，新的Activity进入动画</td>
+</tr>
+<tr>
+<td>activityOpenExitAnimation</td>
+<td>创建并进入新的activity时，当前的activity退出动画</td>
+</tr>
+<tr>
+<td>activityCloseEnterAnimation</td>
+<td>关闭当前activity时，接下来要显示的activity所要做的进入动画</td>
+</tr>
+<tr>
+<td>activityCloseExitAnimation</td>
+<td>关闭当前activity时，当前activity做的退出的动画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="动画效果演示"><a href="#动画效果演示" class="headerlink" title="动画效果演示"></a>动画效果演示</h3><p><img src="Android-System-Animation-Usage/activity_open_close_enter_exit.gif" alt="activity_open_close_enter_exit.gif"></p>
+<p>gif中演示包括有Activity的四个动画。<br>Activity动画用在切换的时候，从一个Activity到下一个Activity，起到中间衔接的作用。<br>除了使用xml方式加载动画，还可以在代码中加载：<br><strong>1.overridePendingTransition</strong><br>从Android2.0开始在Activity增加了一个方法：<br>public void overridePendingTransition (int enterAnim, int exitAnim) ;<br>overridePendingTransition 方法必须在startActivity()或者 finish()方法的后面.<br>使用示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(Activity1.<span class="keyword">this</span>, Activity2.class);</div><div class="line">startActivity(intent);</div><div class="line">overridePendingTransition(R.anim.slide_in_from_ight, R.anim.slide_out_to_left);</div></pre></td></tr></table></figure></p>
+<p><strong>2.ActivityOptions</strong><br>makeCustomAnimation(Context context, int enterResId, int exitResId)<br>Activity切换动画,指定从一个Activity切换到另外一个Activity的退出和进入动画,<br>这个和overridePendingTransition非常类似,在实现效果上和overridePendingTransition也是相同的。除此之外，还有makeScaleUpAnimation，可以让Activity从一个较小的view逐渐放到到Activity的原始大小。ActivityOptions提供低版本的兼容类ActivityOptionCompat.<br>使用示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ActivityOptions</span></div><div class="line">ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(<span class="keyword">this</span>, R.anim.translate_in, R.anim.translate_none);</div><div class="line">ActivityCompat.startActivity(<span class="keyword">this</span>, <span class="keyword">new</span> Intent(<span class="keyword">this</span>, Activity2.class), compat.toBundle());</div></pre></td></tr></table></figure></p>
+<h3 id="Task动画"><a href="#Task动画" class="headerlink" title="Task动画"></a>Task动画</h3><table>
+<thead>
+<tr>
+<th>TaskAnimation</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>taskOpenEnterAnimation</td>
+<td>当创建一个新的activity，并且此activity运行在新的task中，该activity的进入动画</td>
+</tr>
+<tr>
+<td>taskOpenExitAnimation</td>
+<td>当创建一个新的activity，并且此activity运行在新的task中，当前的activity的退出动画</td>
+</tr>
+<tr>
+<td>launchTaskBehindTargetAnimation</td>
+<td>intent.FLAG_ACTIVITY_LAUNCH_BEHIND 没有找到这个标志位，暂不明确作用</td>
+</tr>
+<tr>
+<td>launchTaskBehindSourceAnimation</td>
+<td>intent.FLAG_ACTIVITY_LAUNCH_BEHIND 没有找到这个标志位，暂不明确作用</td>
+</tr>
+<tr>
+<td>taskCloseEnterAnimation</td>
+<td>当前关闭的activity是其所在task中最后一个activity实例时，接下来进入屏幕的activity所做的进入动画(此activity在另外一个task中)</td>
+</tr>
+<tr>
+<td>taskCloseExitAnimation</td>
+<td>当前关闭的activity是其所在task中最后一个activity实例时，该activity的退出动画</td>
+</tr>
+<tr>
+<td>taskToFrontEnterAnimation</td>
+<td>把一个activity移到栈顶显示时，该activity所做的进入动画</td>
+</tr>
+<tr>
+<td>taskToFrontExitAnimation</td>
+<td>把一个activity移到栈顶显示时，原先屏幕上显示的activity的退出动画</td>
+</tr>
+<tr>
+<td>taskToBackEnterAnimation</td>
+<td>把当前屏幕上的activity从栈顶移动到后面，该activity退出屏幕的动画</td>
+</tr>
+<tr>
+<td>taskToBackExitAnimation</td>
+<td>把当前屏幕上的activity从栈顶移动到后面，接下来要显示的activity的进入动画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h3><p>task动画的设置与activity的启动模式有关，activity有以下四中启动模式：</p>
+<ol>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask</li>
+<li>singleInsatnce</li>
+</ol>
+<p>启动模式的说明：<br>1.对于standard和singleTop模式，由产生该Intent(调用startActivity())的task持有该Activity&mdash;&mdash;除非Intent对象里含有FLAG_ACTIVITY_NEW_TASK标志，那么就会寻找一个新的task。相反的，singTask和singleInstance模式，总是标志Activity为task的root Activity，开启这样的活动会新建一个task，而不是装入某个正在运行的任务。&nbsp;</p>
+<p>2.一个standard或者singleTop属性的Activity可以实例化多次，他们可以属于多个不同的task，而且一个task也可以含有相同Activity的多个实例。相反的，singleTask或者singleInstance属性的Activity只能有一个实例（单例），因为这些Activity是位于task的底部，这种限制意味着同一设备的同一时刻该task只能有一个实例。</p>
+<p>3.一个singleInstance属性的Activity是它所在的task里仅有的一个Activity，如果他启动了另一个Activity，那个Activity会被加载进一个不同的task而无视它的启动模式&mdash;&mdash;就如Intent里有FLAG_ACTIVITY_NEW_TASK标识一样。在其他的方面，singleInstance和singleTask一样的。<br>其他三个模式允许有多个Activity在一个task里，一个singleTask属性的Activity总是一个task里的root Activity，但是他可以启动另外的Activity并且将这个新的Activity装进同一个task里，standard和singleTop属性的Activity可以出现在task的任何位置。</p>
+<p>4.对于默认的standard方式，将会生成新的实例来处理每一个新的Intent。每个实例处理一个新的Intent。<br>对singleTop模式，如果一个已经存在的实例在目标task的栈顶，那么就重用这个实例来处理这个新的Intent，如果这个实例存在但是不在栈顶，那就不重用他，而是重新创建一个实例来处理这个新的Intent并且将这个实例压入栈。</p>
+<h3 id="task使用效果"><a href="#task使用效果" class="headerlink" title="task使用效果"></a>task使用效果</h3><p><strong>1.taskOpenAnimation taskOpenExitAnimation<br>taskCloseEnterAnimation taskCloseExitAnimation</strong></p>
+<p><img src="Android-System-Animation-Usage/task_open_close_enter_exit.gif" alt="task_open_close_enter_exit.gif"></p>
+<p>gif中两个Activity的launchMode都是singleInstance，每个activity的实例都会在新的Task中创建。</p>
+<p><strong>2.taskToFrontEnterAnimation taskToFrontExitAnimation</strong></p>
+<p><img src="Android-System-Animation-Usage/task_front.gif" alt="task_front.gif"></p>
+<p><strong>3.taskToBackEnterAnimation taskToBackExitAnimation</strong></p>
+<p><img src="Android-System-Animation-Usage/task_background.gif" alt="task_background.gif"></p>
+<p>通过调用moveTaskToBack()接口将当前的activity放到栈顶后面去。</p>
+<h2 id="Wallpaper-Animation"><a href="#Wallpaper-Animation" class="headerlink" title="Wallpaper Animation"></a>Wallpaper Animation</h2><table>
+<thead>
+<tr>
+<th>WallPaper Animation</th>
+<th>Appliacation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wallpaperOpenEnterAnimation</td>
+<td>打开一个在WallPaper上运行的Activity，但当前的Activity不在wallpaper上时，新打开的Activity所做的进入动画</td>
+</tr>
+<tr>
+<td>wallpaperOpenExitAnimation</td>
+<td>打开一个在WallPaper上运行的Activity，但当前的Activity不在wallpaper上时，不带WallPaper的Activity所做的退出动画</td>
+</tr>
+<tr>
+<td>wallpaperCloseEnterAnimation</td>
+<td>打开一个不再wallpaper上运行的Activity，但当前的Activity在wallpaper上时，不带wallpaper的Activity的进入动画</td>
+</tr>
+<tr>
+<td>wallpaperCloseExitAnimation</td>
+<td>打开一个不在wallpaper上运行的Activity，但当前的Activity在wallpaper上时，带wallpaper的Activity的退出动画</td>
+</tr>
+<tr>
+<td>wallpaperIntraOpenEnterAnimation</td>
+<td>打开一个在WallPaper上运行的Activity，当前的Activity也在wallpaper上，新打开的Activity所做的进入动画</td>
+</tr>
+<tr>
+<td>wallpaperIntraOpenExitAnimation</td>
+<td>打开一个在WallPaper上运行的Activity，当前的Activity也在wallpaper上时，当前的Activity所做的退出动画</td>
+</tr>
+<tr>
+<td>wallpaperIntraCloseEnterAnimation</td>
+<td>关闭当前的在Wallpaper上运行的activity时，下一个进入的activity也运行在Wallpaper上，此时下一个activity的进入动画</td>
+</tr>
+<tr>
+<td>wallpaperIntraCloseExitAnimation</td>
+<td>关闭当前的在Wallpaper上运行的activity时，下一个进入的activity也运行在Wallpaper上，此时当前activity的进退出动画</td>
+</tr>
+</tbody>
+</table>
+<p>使用Wallpaper的动画时，需要设置activity的主题是显示wallpaper的主题，可以直接继承自android:Theme.Wallpaper,或者在Theme中设置壁纸可见。如下所示：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"WpSecondActivity"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Wallpaper"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;</span>@style/WpSecondAnimation<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后将Theme应用到Activity的主题上去，这种方法会导致没有ActionBar。<br>或者在onCreate()函数中添加如下代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> WallpaperManager wallpaperManager = WallpaperManager.getInstance(<span class="keyword">this</span>); </div><div class="line"><span class="keyword">final</span> Drawable wallpaperDrawable = wallpaperManager.getDrawable();</div><div class="line"><span class="keyword">this</span>.getWindow().setBackgroundDrawable(wallpaperDrawable);</div></pre></td></tr></table></figure></p>
+<h3 id="动画效果展示"><a href="#动画效果展示" class="headerlink" title="动画效果展示"></a>动画效果展示</h3><p>1.wallpaperOpenEnterAnimation wallpaperOpenExitAnimation<br>    wallpaperCloseEnterAnimation wallpaperCloseExitAnimation </p>
+<p><img src="Android-System-Animation-Usage/wallpaper_open_close_enter_exit.gif" alt="wallpaper_open_close_enter_exit.gif"></p>
+<p>2.wallpaperIntraOpenEnterAnimation wallpaperIntraOpenExitAnimation<br>    wallpaperIntraCloseEnterAnimation wallpaperIntraCloseExitAnimation</p>
+<p><img src="Android-System-Animation-Usage/wallpaper_intra.gif" alt="wallpaper_intra.gif"></p>
+<h2 id="Fragment-Animation"><a href="#Fragment-Animation" class="headerlink" title="Fragment Animation"></a>Fragment Animation</h2><p>Fragment切换动画有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>Fragment Animation</th>
+<th>Appliacation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fragmentOpenEnterAnimation</td>
+<td>替换当前的fragment时，新的fragment进入动画</td>
+</tr>
+<tr>
+<td>fragmentOpenExitAnimation</td>
+<td>替换当前的fragment时，当前fragment的退出动画</td>
+</tr>
+<tr>
+<td>fragmentCloseEnterAnimation</td>
+<td>关闭当前的fragment时，下一个fragment的进入动画</td>
+</tr>
+<tr>
+<td>fragmentCloseExitAnimation</td>
+<td>关闭当前的fragment时，当前fragment的退出动画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p><img src="Android-System-Animation-Usage/fragment.gif" alt="fragment.gif"></p>
+<p>gif中点击ADD按钮，添加新的fragment，演示fragmentOpen的Enter和Exit动画，按下手机的BACK按钮时，当前的fragment退出，演示fragmentClose的Open和Exit动画。<br>代码中是如下如下加载动画的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addFragment</span><span class="params">()</span> </span>&#123;</div><div class="line">        FragmentTransaction fragmentTransaction = manager.beginTransaction();</div><div class="line">        fragmentTransaction.setCustomAnimations(R.anim.fragment_open_enter_animation, R.anim.fragment_open_exit_animation,</div><div class="line">                                                R.anim.fragment_close_enter_animation, R.anim.fragment_close_exit_animation);</div><div class="line">        fragmentTransaction.replace(R.id.fragment_container, <span class="keyword">new</span> BlankFragment());</div><div class="line">        fragmentTransaction.addToBackStack(<span class="keyword">null</span>); <span class="comment">//commit之前哦！</span></div><div class="line">        fragmentTransaction.commit();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/08/08/Android-System-Animation-Usage/" class="article-date">
+  <time datetime="2016-08-08T04:56:14.000Z" itemprop="datePublished">2016-08-08</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2016/08/14/OpneGL-Transformation/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OpenGL Matrix Transformation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/08/glsl语言基础/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">GLSL语言基础</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+  </div>
+  
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+  
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

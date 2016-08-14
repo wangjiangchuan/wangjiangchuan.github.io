@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>GLSL语言基础 | Aiamjay`s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GLSL语言基础数据类型12345678910111213141516float  bool  int    基本数据类型vec2                包含了2个浮点数的向量vec3                包含了3个浮点数的向量vec4                包含了4个浮点数的向量ivec2               包含了2个整数的向量ivec3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GLSL语言基础">
+<meta property="og:url" content="http://yoursite.com/2016/08/08/glsl语言基础/index.html">
+<meta property="og:site_name" content="Aiamjay`s Blog">
+<meta property="og:description" content="GLSL语言基础数据类型12345678910111213141516float  bool  int    基本数据类型vec2                包含了2个浮点数的向量vec3                包含了3个浮点数的向量vec4                包含了4个浮点数的向量ivec2               包含了2个整数的向量ivec3">
+<meta property="og:image" content="http://yoursite.com/glsl语言基础/vertex.jpeg">
+<meta property="og:image" content="http://yoursite.com/glsl语言基础/fragment.jpeg">
+<meta property="og:image" content="http://yoursite.com/glsl语言基础/2.jpg">
+<meta property="og:updated_time" content="2016-08-10T11:41:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GLSL语言基础">
+<meta name="twitter:description" content="GLSL语言基础数据类型12345678910111213141516float  bool  int    基本数据类型vec2                包含了2个浮点数的向量vec3                包含了3个浮点数的向量vec4                包含了4个浮点数的向量ivec2               包含了2个整数的向量ivec3">
+<meta name="twitter:image" content="http://yoursite.com/glsl语言基础/vertex.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="Aiamjay`s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <article id="post-glsl语言基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GLSL语言基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="GLSL语言基础"><a href="#GLSL语言基础" class="headerlink" title="GLSL语言基础"></a>GLSL语言基础</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span>  <span class="keyword">bool</span>  <span class="keyword">int</span>    基本数据类型</div><div class="line">vec2                包含了<span class="number">2</span>个浮点数的向量</div><div class="line">vec3                包含了<span class="number">3</span>个浮点数的向量</div><div class="line">vec4                包含了<span class="number">4</span>个浮点数的向量</div><div class="line">ivec2               包含了<span class="number">2</span>个整数的向量</div><div class="line">ivec3               包含了<span class="number">3</span>个整数的向量</div><div class="line">ivec4               包含了<span class="number">4</span>个整数的向量</div><div class="line">bvec2               包含了<span class="number">2</span>个布尔数的向量</div><div class="line">bvec3               包含了<span class="number">3</span>个布尔数的向量</div><div class="line">bvec4               包含了<span class="number">4</span>个布尔数的向量</div><div class="line">mat2                <span class="number">2</span>*<span class="number">2</span>维矩阵</div><div class="line">mat3                <span class="number">3</span>*<span class="number">3</span>维矩阵</div><div class="line">mat4                <span class="number">4</span>*<span class="number">4</span>维矩阵</div><div class="line">sampler1D           <span class="number">1</span>D纹理采样器</div><div class="line">sampler2D           <span class="number">2</span>D纹理采样器</div><div class="line">sampler3D           <span class="number">3</span>D纹理采样器</div></pre></td></tr></table></figure>
+<h1 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h1><h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">uniform mat4 uMVPMatrix;             <span class="comment">// 应用程序传入顶点着色器的总变换矩阵</span></div><div class="line">attribute vec4 aPosition;             <span class="comment">// 应用程序传入顶点着色器的顶点位置</span></div><div class="line">attribute vec2 aTextureCoord;          <span class="comment">// 应用程序传入顶点着色器的顶点纹理坐标</span></div><div class="line">attribute vec4 aColor                  <span class="comment">// 应用程序传入顶点着色器的顶点颜色变量</span></div><div class="line">varying vec4 vColor                  <span class="comment">// 用于传递给片元着色器的顶点颜色数据</span></div><div class="line">varying vec2 vTextureCoord;          <span class="comment">// 用于传递给片元着色器的顶点纹理数据</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    gl_Position = uMVPMatrix * aPosition; <span class="comment">// 根据总变换矩阵计算此次绘制此顶点位置</span></div><div class="line">    vColor = aColor;               <span class="comment">// 将顶点颜色数据传入片元着色器</span></div><div class="line">    vTextureCoord = aTextureCoord;   <span class="comment">// 将接收的纹理坐标传递给片元着色器</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="uniform变量"><a href="#uniform变量" class="headerlink" title="uniform变量"></a>uniform变量</h3><p>uniform变量是外部application程序传递给（vertex和fragment）shader的变量。<br>因此它是application通过函数glUniform**（）函数赋值的。<br>在（vertex和fragment）shader程序内部，uniform变量就像是C语言里面的常量（const ），<br>它不能被shader程序修改。（shader只能用，不能改）</p>
+<p>如果uniform变量在vertex和fragment两者之间声明方式完全一样，<br>则它可以在vertex和fragment共享使用。<br>（相当于一个被vertex和fragment shader共享的全局变量）</p>
+<h3 id="attribute变量"><a href="#attribute变量" class="headerlink" title="attribute变量"></a>attribute变量</h3><p>attribute变量是只能在vertex shader中使用的变量。<br>（它不能在fragment shader中声明attribute变量，也不能被fragment shader中使用）<br>一般用attribute变量来表示一些顶点的数据，如：顶点坐标，法线，纹理坐标，顶点颜色等。</p>
+<p>在application中，一般用函数glBindAttribLocation()来绑定每个attribute变量的位置，<br>然后用函数glVertexAttribPointer()为每个attribute变量赋值。</p>
+<h3 id="varying变量"><a href="#varying变量" class="headerlink" title="varying变量"></a>varying变量</h3><p>varying变量是vertex和fragment shader之间做数据传递用的。<br>一般vertex shader修改varying变量的值，然后fragment shader使用该varying变量的值。<br>因此varying变量在vertex和fragment shader二者之间的声明必须是一致的。<br>application不能使用此变量。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Vertex shader</span></div><div class="line">uniform mat4 u_matViewProjection;</div><div class="line">attribute vec4 a_position;</div><div class="line">attribute vec2 a_texCoord0;</div><div class="line">varying vec2 v_texCoord; <span class="comment">// Varying in vertex shader</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">gl_Position = u_matViewProjection * a_position;</div><div class="line">v_texCoord = a_texCoord0;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Fragment shader</span></div><div class="line">precision mediump <span class="keyword">float</span>;</div><div class="line">varying vec2 v_texCoord; <span class="comment">// Varying in fragment shader</span></div><div class="line">uniform sampler2D s_baseMap;</div><div class="line">uniform sampler2D s_lightMap;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">vec4 baseColor;</div><div class="line">vec4 lightColor;</div><div class="line">baseColor = texture2D(s_baseMap, v_texCoord);</div><div class="line">lightColor = texture2D(s_lightMap, v_texCoord);</div><div class="line">gl_FragColor = baseColor * (lightColor + <span class="number">0.25</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="gl-Position变量"><a href="#gl-Position变量" class="headerlink" title="gl_Position变量"></a>gl_Position变量</h3><p>gl_Position为内建变量，表示变换后点的空间位置。 顶点着色器从应用程序中获得<br>原始的顶点位置数据，这些原始的顶点数据在顶点着色器中经过平移、旋转、缩放等数学变换后，<br>生成新的顶点位置。<br>新的顶点位置通过在顶点着色器中写入gl_Position传递到渲染管线的后继阶段继续处理。</p>
+<h3 id="一张图展示数据的变化"><a href="#一张图展示数据的变化" class="headerlink" title="一张图展示数据的变化"></a>一张图展示数据的变化</h3><p><img src="glsl语言基础/vertex.jpeg" alt="vertexShader"></p>
+<h3 id="in变量"><a href="#in变量" class="headerlink" title="in变量"></a>in变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#version 330  </span></div><div class="line">layout(location = <span class="number">0</span>) in vec3 attrib_position;  </div><div class="line">layout(location = <span class="number">1</span>) in vec2 attrib_texcoord;  </div><div class="line">layout(location = <span class="number">2</span>) in vec3 attrib_normal;  </div><div class="line">layout(location = <span class="number">3</span>) in <span class="keyword">int</span>  attrib_clustercount;</div></pre></td></tr></table></figure>
+<p>在上面的Vertex Program代码中，第一行（#version 330），<br>表明我们现在使用的GLSL版本是GLSL3.3，以区别于以前的版本并允许我们使用基于GLSL3.3的功能。<br>在过去，OpenGL的版本和GLSL版本是不统一的（前文中的GL2.2所对应的是GLSL1.2，<br>而后来的对应关系是GL3.0-GLSL1.3，GL3.1-GLSL1.4，GL3.2-GLSL1.5），<br>直到2010年OpenGL3.3/4.0规范的提出，khronos委员会决定让两者版本统一，<br>所以就有了现在本博客所使用的OpenGL3.3-GLSL3.3的对应关系（注，ShaderModel4.0的显卡可达到的最高版本）。</p>
+<p>接下来的几行声明了4个attribute变量。<br>在GL2.x中一个attribute变量通常是“attribute vec3 attrib_position;”这样来表示，<br>在GL3.x中，废弃了attribute关键字（以及varying关键字），<br>属性变量统一用in/out作为前置关键字，对每一个Shader stage来说，<br>in表示该属性是作为输入的属性，out表示该属性是用于输出的属性。<br>这里，attribute变量作为Vertex Shader的顶点输入属性，所以都用in标记。<br>另外，这里使用了layout关键字<br>（通常是layout(layoutAttrib1=XXX, layoutAttrib2=XXX, …)这样的形式）。<br>这个关键字用于一个具体变量前，用于显式标明该变量的一些布局属性，<br>这里就是显式设定了该attribute变量的位置值(location)，<br>其作用跟ShaderProgram(着色程序)链接前<br>调用glBindAttribLocation来设定atribute变量的位置值是等效的。</p>
+<p>为什么采用这种方式更好呢？其一当然是编码量减少了，<br>二来也避免了去Get某个attribute的location带来的开销，<br>三来，最重要的是，它重定义了OpenGL和GLSL之间attribute变量属性的依赖。<br>过去我们的OpenGL端必须首先要知道GLSL端某个attribute的名字，<br>才能设置/获得其位置值，如今两者只需要location对应起来就可以完成绘制时顶点属性流的传递了。<br>不再需要在ShaderProgram的compile和link之间插入代码也更方便于其模块化。</p>
+<h3 id="out变量"><a href="#out变量" class="headerlink" title="out变量"></a>out变量</h3><p>指定变量为着色器阶段的一个输出，意思就是这个变量是这个阶段着色器的输出变量，肯能会用到<br>下一个作色器的输入变量</p>
+<h1 id="片段着色器"><a href="#片段着色器" class="headerlink" title="片段着色器"></a>片段着色器</h1><h2 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">precision mediump <span class="keyword">float</span>;     <span class="comment">// 设置工作精度</span></div><div class="line">varying vec4 vColor;         <span class="comment">// 接收从顶点着色器过来的顶点颜色数据</span></div><div class="line">varying vec2 vTextureCoord;  <span class="comment">// 接收从顶点着色器过来的纹理坐标</span></div><div class="line">uniform sampler2D sTexture;  <span class="comment">// 纹理采样器，代表一幅纹理</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;                                                                                   </div><div class="line">    gl_FragColor = texture2D(sTexture, vTextureCoord) * vColor;<span class="comment">// 进行纹理采样</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>##基本介绍<br>片元着色器是一个处理片元值及其相关联数据的可编程单元，<br>片元着色器可执行纹理的访问、颜色的汇总、雾化等操作，每片元执行一次。<br>片元着色器替代了纹理、颜色求和、雾以及Alpha测试，<br>这一部分是需要开发者自己开发的。<br><img src="glsl语言基础/fragment.jpeg" alt="fragmentShader"></p>
+<p>(1）varying指的是从顶点着色器传递到片元着色器的数据变量</p>
+<p>(2）gl_FragColor为内置变量，用来保存片元着色器计算完成的片元颜色值，<br>此颜色值将送入渲染管线的后继阶段进行处理。</p>
+<h2 id="precision变量"><a href="#precision变量" class="headerlink" title="precision变量"></a>precision变量</h2><p>该变量是描述精度的属性<br><img src="glsl语言基础/2.jpg" alt="precision"><br>最后是数据类型，及使用中等的float精度</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.tuicool.com/articles/VZVJra" target="_blank" rel="external">shader相关</a></p>
+<p><a href="http://blog.csdn.net/candycat1992/article/details/8830894" target="_blank" rel="external">opengl向shader中传递数据</a></p>
+<p><a href="http://blog.csdn.net/shenshen211/article/details/51802700" target="_blank" rel="external">GLSL vary、atrribute、in、out的区别</a></p>
+<p><a href="http://www.tuicool.com/articles/NVNvmaR" target="_blank" rel="external">GLSL语法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/08/08/glsl语言基础/" class="article-date">
+  <time datetime="2016-08-08T01:59:59.000Z" itemprop="datePublished">2016-08-08</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2016/08/08/Android-System-Animation-Usage/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android System Animation Usage
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+  </div>
+  
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+  
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
