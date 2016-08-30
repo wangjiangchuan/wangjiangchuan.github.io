@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>StereoView动画 | Aiamjay`s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="StereoView动画动画效果展示动画控件本身是一个ViewGroup，实现了对里面的子控件的3D旋转效果。
+接口setStartScreen(int startScreen) ：设置第一页展示的页面 @param startScreen (0,getChildCount-1)setResistance(float resistance) ： 设置滑动阻力 @param resistance (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StereoView动画">
+<meta property="og:url" content="http://yoursite.com/2016/08/30/StereoView动画/index.html">
+<meta property="og:site_name" content="Aiamjay`s Blog">
+<meta property="og:description" content="StereoView动画动画效果展示动画控件本身是一个ViewGroup，实现了对里面的子控件的3D旋转效果。
+接口setStartScreen(int startScreen) ：设置第一页展示的页面 @param startScreen (0,getChildCount-1)setResistance(float resistance) ： 设置滑动阻力 @param resistance (">
+<meta property="og:image" content="https://github.com/ImmortalZ/StereoView/raw/master/img/2.gif">
+<meta property="og:image" content="http://img.blog.csdn.net/20160715183949279">
+<meta property="og:image" content="http://yoursite.com/StereoView动画/stereoView布局.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20160715173427034">
+<meta property="og:updated_time" content="2016-08-30T13:34:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StereoView动画">
+<meta name="twitter:description" content="StereoView动画动画效果展示动画控件本身是一个ViewGroup，实现了对里面的子控件的3D旋转效果。
+接口setStartScreen(int startScreen) ：设置第一页展示的页面 @param startScreen (0,getChildCount-1)setResistance(float resistance) ： 设置滑动阻力 @param resistance (">
+<meta name="twitter:image" content="https://github.com/ImmortalZ/StereoView/raw/master/img/2.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Aiamjay`s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <article id="post-StereoView动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      StereoView动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="StereoView动画"><a href="#StereoView动画" class="headerlink" title="StereoView动画"></a>StereoView动画</h1><h2 id="动画效果展示"><a href="#动画效果展示" class="headerlink" title="动画效果展示"></a>动画效果展示</h2><p><img src="https://github.com/ImmortalZ/StereoView/raw/master/img/2.gif" alt=""><br><img src="http://img.blog.csdn.net/20160715183949279" alt=""><br>动画控件本身是一个ViewGroup，实现了对里面的子控件的3D旋转效果。</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>setStartScreen(int startScreen) ：设置第一页展示的页面 @param startScreen (0,getChildCount-1)<br>setResistance(float resistance) ： 设置滑动阻力 @param resistance (0,…)<br>setInterpolator(Interpolator mInterpolator) ： 设置滚动时interpolator插补器<br>setAngle(float mAngle)：设置滚动时两个item的夹角度数 [0f,180f]<br>setCan3D(boolean can3D) : 是否开启3D效果<br>setItem(int itemId) : 跳转到指定的item @param itemId [0,getChildCount-1]<br>toPre() : 上一页<br>toNext() ： 下一页   </p>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><ol>
+<li>3D效果的实现是利用Matrix和Camera。  </li>
+<li>滚动的实现利用Scroller。  </li>
+</ol>
+<h3 id="onMeasure、onLayout函数"><a href="#onMeasure、onLayout函数" class="headerlink" title="onMeasure、onLayout函数"></a>onMeasure、onLayout函数</h3><p>由于整个控件是一个自定义的ViewGroup，所以先从自定义ViewGroup重写的函数入手分析。  </p>
+<pre><code class="java"><span class="meta">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>{
+    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    measureChildren(widthMeasureSpec, heightMeasureSpec);
+    mWidth = getMeasuredWidth();
+    mHeight = getMeasuredHeight();
+    <span class="comment">//滑动到设置的StartScreen位置</span>
+    <span class="comment">// mStartScreen * mHeight</span>
+    scrollTo(<span class="number">0</span>, mStartScreen * mHeight);
+    <span class="comment">//Log.e("mStartScreen", (mStartScreen * mHeight) + "");</span>
+}
+
+<span class="meta">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>{
+    <span class="keyword">int</span> childTop = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; getChildCount(); i++) {
+        View child = getChildAt(i);
+        <span class="keyword">if</span> (child.getVisibility() != GONE) {
+            child.layout(<span class="number">0</span>, childTop,
+                    child.getMeasuredWidth(), childTop + child.getMeasuredHeight());
+            childTop = childTop + child.getMeasuredHeight();
+        }
+    }
+}
+</code></pre>
+<p>下面这张图中展示了这个ViewGroup控件中的内容：  </p>
+<p><img src="StereoView动画/stereoView布局.png" alt="结构图">  </p>
+<p>onMeasure方法中调用scrollTo偏移到要显示的子View的位置。在onLayout函数里面，子View的布局只在Y轴方向进行增长，使得每次ViewGroup<br>只能显示一个View。  </p>
+<h3 id="触摸事件的处理流程"><a href="#触摸事件的处理流程" class="headerlink" title="触摸事件的处理流程"></a>触摸事件的处理流程</h3><h4 id="dispatchTouchEvent函数"><a href="#dispatchTouchEvent函数" class="headerlink" title="dispatchTouchEvent函数"></a>dispatchTouchEvent函数</h4><p>代码如下：  </p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>{
+    <span class="keyword">float</span> x = ev.getX();
+    <span class="keyword">float</span> y = ev.getY();
+    <span class="keyword">switch</span> (ev.getAction()) {
+        <span class="keyword">case</span> MotionEvent.ACTION_DOWN:
+            isSliding = <span class="keyword">false</span>;
+            mDownX = x;
+            mTempY = mDownY = y;
+            <span class="keyword">if</span> (!mScroller.isFinished()) {
+                <span class="comment">// 当上一次滑动没有结束时，再次点击，强制滑动在点击位置结束</span>
+                mScroller.setFinalY(mScroller.getCurrY());
+                mScroller.abortAnimation();
+                scrollTo(<span class="number">0</span>, getScrollY());
+                isSliding = <span class="keyword">true</span>;
+            }
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> MotionEvent.ACTION_MOVE:
+            <span class="keyword">if</span> (!isSliding) {
+                isSliding = isCanSliding(ev);
+            }
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+            <span class="keyword">break</span>;
+    }
+    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(ev);
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanSliding</span><span class="params">(MotionEvent ev)</span> </span>{
+    <span class="keyword">float</span> moveX;
+    <span class="keyword">float</span> moveY;
+    moveX = ev.getX();
+    mTempY = moveY = ev.getY();
+    <span class="keyword">if</span> (Math.abs(moveY - mDownY) &gt; mTouchSlop &amp;&amp; (Math.abs(moveY - mDownY) &gt; (Math.abs(moveX - mDownX)))) {
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+    <span class="keyword">return</span> <span class="keyword">false</span>;
+}
+</code></pre>
+<p>这个函数是触摸时，首先调用的，这个函数的作用是为了得出当前触摸事件是作用子控件还是在ViewGroup里面处理，其中有一个标志位<br><em>isSliding</em>，isCanSliding函数是为了判断，当前后两次手指的位置距离超过了触发滑动的最小距离时，就认为是产生了滑动事件，返回true。<br>这个<em>isSliding</em>直接影响触摸事件的分发。  </p>
+<pre><code class="java"><span class="meta">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>{
+    <span class="keyword">return</span> isSliding;
+}
+</code></pre>
+<p>当<em>isSliding</em>为true时，拦截事件，由ViewGroup处理。   </p>
+<h4 id="onTouchEvent函数"><a href="#onTouchEvent函数" class="headerlink" title="onTouchEvent函数"></a>onTouchEvent函数</h4><p>代码如下：  </p>
+<pre><code class="java"><span class="meta">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
+    <span class="keyword">if</span> (mVelocityTracker == <span class="keyword">null</span>) {
+        mVelocityTracker = VelocityTracker.obtain();
+    }
+    mVelocityTracker.addMovement(event);
+    <span class="keyword">float</span> y = event.getY();
+    <span class="keyword">switch</span> (event.getAction()) {
+        <span class="keyword">case</span> MotionEvent.ACTION_DOWN:
+            <span class="keyword">return</span> <span class="keyword">true</span>;
+        <span class="keyword">case</span> MotionEvent.ACTION_MOVE:
+            <span class="keyword">if</span> (isSliding) {
+                <span class="keyword">int</span> realDelta = (<span class="keyword">int</span>) (mDownY - y);
+                mDownY = y;
+                <span class="keyword">if</span> (mScroller.isFinished()) {
+                    <span class="comment">//因为要循环滚动</span>
+                    recycleMove(realDelta);
+                }
+            }
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:
+        <span class="keyword">case</span> MotionEvent.ACTION_UP:
+            <span class="keyword">if</span> (isSliding) {
+                isSliding = <span class="keyword">false</span>;
+                mVelocityTracker.computeCurrentVelocity(<span class="number">1000</span>);   <span class="comment">// px/秒</span>
+                <span class="keyword">float</span> yVelocity = mVelocityTracker.getYVelocity();
+                <span class="comment">//滑动的速度大于规定的速度，或者向上滑动时，上一页页面展现出的高度超过1/2。则设定状态为State.ToPre</span>
+                <span class="keyword">if</span> (yVelocity &gt; standerSpeed <span class="comment">/*|| ((getScrollY() + mHeight / 2) / mHeight &lt; mStartScreen)*/</span>) {
+                    mState = State.ToPre;
+                } <span class="keyword">else</span> <span class="keyword">if</span> (yVelocity &lt; -standerSpeed <span class="comment">/*|| ((getScrollY() + mHeight / 2) / mHeight &gt; mStartScreen)*/</span>) {
+                    <span class="comment">//滑动的速度大于规定的速度，或者向下滑动时，下一页页面展现出的高度超过1/2。则设定状态为State.ToNext</span>
+                    mState = State.ToNext;
+                } <span class="keyword">else</span> {
+                    mState = State.Normal;
+                }
+                <span class="comment">//根据mState进行相应的变化</span>
+                changeByState(yVelocity);
+            }
+            <span class="keyword">if</span> (mVelocityTracker != <span class="keyword">null</span>) {
+                mVelocityTracker.recycle();
+                mVelocityTracker = <span class="keyword">null</span>;
+            }
+            <span class="keyword">break</span>;
+    }
+    <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);
+}
+</code></pre>
+<p>在ACTION_UP里面，先是VelocityTracker计算滑动的速度，根据速度是否产生上滑和下滑，由<code>yVelocity &gt; standerSpeed</code>和<code>yVelocity &lt; -standerSpeed</code><br>来判断，并产生了三种不同的状态。  </p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">enum</span> State {
+        Normal, ToPre, ToNext
+    }
+</code></pre>
+<p>Normal 表示停留在当前的子view，ToPre 向前翻动， ToNext 向后翻动。接着调用changeByState(yVelocity)来改变显示。<br>changeByState里面根据state分别执行三种不同的Action， pre Normal next。函数实现如下：  </p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeByState</span><span class="params">(<span class="keyword">float</span> yVelocity)</span> </span>{
+    alreadyAdd = <span class="number">0</span>;<span class="comment">//重置滑动多页时的计数</span>
+    <span class="keyword">if</span> (getScrollY() != mHeight) {
+        <span class="keyword">switch</span> (mState) {
+            <span class="keyword">case</span> Normal:
+                toNormalAction();
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> ToPre:
+                toPreAction(yVelocity);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> ToNext:
+                toNextAction(yVelocity);
+                <span class="keyword">break</span>;
+        }
+        invalidate();
+    }
+}
+<span class="comment">/**
+ * mState = State.Normal 时进行的动作
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toNormalAction</span><span class="params">()</span> </span>{
+    <span class="keyword">int</span> startY;
+    <span class="keyword">int</span> delta;
+    <span class="keyword">int</span> duration;
+    mState = State.Normal;
+    addCount = <span class="number">0</span>;
+    startY = getScrollY();
+    delta = mHeight * mStartScreen - getScrollY();
+    duration = (Math.abs(delta)) * <span class="number">4</span>;
+    mScroller.startScroll(<span class="number">0</span>, startY, <span class="number">0</span>, delta, duration);
+}
+
+<span class="comment">/**
+ * mState = State.ToPre 时进行的动作
+ *
+ * <span class="doctag">@param</span> yVelocity 竖直方向的速度
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toPreAction</span><span class="params">(<span class="keyword">float</span> yVelocity)</span> </span>{
+    <span class="keyword">int</span> startY;
+    <span class="keyword">int</span> delta;
+    <span class="keyword">int</span> duration;
+    mState = State.ToPre;
+    addPre();<span class="comment">//增加新的页面</span>
+    <span class="comment">//计算松手后滑动的item个数</span>
+    <span class="keyword">int</span> flingSpeedCount = (yVelocity - standerSpeed) &gt; <span class="number">0</span> ? (<span class="keyword">int</span>) (yVelocity - standerSpeed) : <span class="number">0</span>;
+    addCount = flingSpeedCount / flingSpeed + <span class="number">1</span>;
+    <span class="comment">//mScroller开始的坐标</span>
+    startY = getScrollY() + mHeight;
+    setScrollY(startY);
+    <span class="comment">//mScroller移动的距离</span>
+    delta = - ((startY - mStartScreen * mHeight) + (addCount - <span class="number">1</span>) * mHeight);
+    duration = (Math.abs(delta)) * <span class="number">3</span>;
+    mScroller.startScroll(<span class="number">0</span>, startY, <span class="number">0</span>, delta, duration);
+    addCount--;
+}
+
+<span class="comment">/**
+ * mState = State.ToNext 时进行的动作
+ *
+ * <span class="doctag">@param</span> yVelocity 竖直方向的速度
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toNextAction</span><span class="params">(<span class="keyword">float</span> yVelocity)</span> </span>{
+    <span class="keyword">int</span> startY;
+    <span class="keyword">int</span> delta;
+    <span class="keyword">int</span> duration;
+    mState = State.ToNext;
+    addNext();
+    <span class="keyword">int</span> flingSpeedCount = (Math.abs(yVelocity) - standerSpeed) &gt; <span class="number">0</span> ? (<span class="keyword">int</span>) (Math.abs(yVelocity) - standerSpeed) : <span class="number">0</span>;
+    addCount = flingSpeedCount / flingSpeed + <span class="number">1</span>;
+    startY = getScrollY() - mHeight;
+    setScrollY(startY);
+    delta = mHeight * mStartScreen - startY + (addCount - <span class="number">1</span>) * mHeight;
+    LogUtil.m(<span class="string">"mStartScreen "</span> + mStartScreen + <span class="string">"多后一页startY "</span> + startY + <span class="string">" yVelocity "</span> + yVelocity + <span class="string">" delta "</span> + delta + <span class="string">"  getScrollY() "</span> + getScrollY() + <span class="string">" addCount "</span> + addCount);
+    duration = (Math.abs(delta)) * <span class="number">3</span>;
+    mScroller.startScroll(<span class="number">0</span>, startY, <span class="number">0</span>, delta, duration);
+    addCount--;
+}
+</code></pre>
+<p>这张图展示了，循环滑动的实现以及这三个函数的意义：  </p>
+<p><img src="http://img.blog.csdn.net/20160715173427034" alt="">  </p>
+<p>toNormalAction函数比较好理解，就是从滑动的位置Scroll到当前的View位置。而NextAction和PreAction需要结合图来理解。<br>当向前滑动的时候，将ViewGroup中最后一个子View移动到最开始的位置；向后滑动的时候将第一个子Item移动到最末尾的位置。一次来实现<br>循环滑动。yVelocity是存储速度的变量，通过<code>(Math.abs(yVelocity) - standerSpeed) / lingSpeed + 1</code>计算出快速滑动时<br>划过的子View的个数，滑动距离<code>delta = mHeight * mStartScreen - startY + (addCount - 1) * mHeight</code>得到。<br>通过这三个函数，可以看到，滑动的实现是通过mScroller.startScroll函数来实现的，这个函数回去回调computeScroll函数，实现如下：  </p>
+<pre><code class="java"><span class="meta">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span> </span>{
+    <span class="keyword">if</span> (mScroller.computeScrollOffset()) {
+        <span class="keyword">if</span> (mState == State.ToPre) {
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY() + mHeight * alreadyAdd);
+            <span class="keyword">if</span> (getScrollY() &lt; (mHeight + <span class="number">2</span>) &amp;&amp; addCount &gt; <span class="number">0</span>) {
+                isAdding = <span class="keyword">true</span>;
+                addPre();
+                alreadyAdd++;
+                addCount--;
+            }
+        } <span class="keyword">else</span> <span class="keyword">if</span> (mState == State.ToNext) {
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY() - mHeight * alreadyAdd);
+            <span class="keyword">if</span> (getScrollY() &gt; (mHeight) &amp;&amp; addCount &gt; <span class="number">0</span>) {
+                isAdding = <span class="keyword">true</span>;
+                addNext();
+                addCount--;
+                alreadyAdd++;
+            }
+        } <span class="keyword">else</span> {
+            <span class="comment">//mState == State.Normal状态</span>
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+        }
+        postInvalidate();
+    }
+    <span class="comment">//滑动结束时相关用于计数变量复位</span>
+    <span class="keyword">if</span> (mScroller.isFinished()) {
+        alreadyAdd = <span class="number">0</span>;
+        addCount = <span class="number">0</span>;
+    }
+}
+</code></pre>
+<p>computeScroll接口里面通过调用scrollTo()函数来实现滑动，其实startScroll最终是通过这里的scrollTo()实现的。  </p>
+<pre><code class="java"><span class="keyword">if</span> (getScrollY() &lt; (mHeight + <span class="number">2</span>) &amp;&amp; addCount &gt; <span class="number">0</span>) {
+    isAdding = <span class="keyword">true</span>;
+    addPre();
+    alreadyAdd++;
+    addCount--;
+}
+</code></pre>
+<p>这段代码是控制循环滑动的，scrollTo第二个参数是Y轴的位置，是受到alreadyAdd控制的，addCount每减一次，它就加一次，以此<br>实现滚动，<code>getScrollY() &lt; (mHeight + 2)</code>是为了限制scrollTo的第二个参数大小用的，因为再循环滑动的过程中，<br>循环实际上是每次将临界位置的子View移动得到的，因为滑动过程中，当前显示的item在数组中的位置不会变(如图中显示)，拿向前<br>滑动来说，每次滑动到了上一个子View时，getScrollY就等于mHieght，此时需要再次调用addPre()，否则滑出界了.  </p>
+<h3 id="3D翻转动画的实现"><a href="#3D翻转动画的实现" class="headerlink" title="3D翻转动画的实现"></a>3D翻转动画的实现</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/08/30/StereoView动画/" class="article-date">
+  <time datetime="2016-08-30T13:23:44.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/2016/08/30/开源动画分析/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">开源动画分析</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+  </div>
+  
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+  
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

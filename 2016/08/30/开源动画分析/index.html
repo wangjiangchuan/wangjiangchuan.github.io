@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>开源动画分析 | Aiamjay`s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开源动画分析开原动画有两个，一个是实现碎纸机效果的；另外一个是实现3D翻转效果。  
+PaperShredder动画动画效果展示  
+动画自定义的属性&amp;lt;declare-styleable name=&quot;PaperShredderView&quot;&amp;gt;
+    &amp;lt;attr name=&quot;sherderBgColor&quot; format=&quot;color|reference&quot;&amp;gt;&amp;lt;/attr&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源动画分析">
+<meta property="og:url" content="http://yoursite.com/2016/08/30/开源动画分析/index.html">
+<meta property="og:site_name" content="Aiamjay`s Blog">
+<meta property="og:description" content="开源动画分析开原动画有两个，一个是实现碎纸机效果的；另外一个是实现3D翻转效果。  
+PaperShredder动画动画效果展示  
+动画自定义的属性&amp;lt;declare-styleable name=&quot;PaperShredderView&quot;&amp;gt;
+    &amp;lt;attr name=&quot;sherderBgColor&quot; format=&quot;color|reference&quot;&amp;gt;&amp;lt;/attr&amp;g">
+<meta property="og:image" content="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/shot.png">
+<meta property="og:image" content="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/1.gif">
+<meta property="og:image" content="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/2.gif">
+<meta property="og:image" content="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/3.gif">
+<meta property="og:updated_time" content="2016-08-30T13:22:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开源动画分析">
+<meta name="twitter:description" content="开源动画分析开原动画有两个，一个是实现碎纸机效果的；另外一个是实现3D翻转效果。  
+PaperShredder动画动画效果展示  
+动画自定义的属性&amp;lt;declare-styleable name=&quot;PaperShredderView&quot;&amp;gt;
+    &amp;lt;attr name=&quot;sherderBgColor&quot; format=&quot;color|reference&quot;&amp;gt;&amp;lt;/attr&amp;g">
+<meta name="twitter:image" content="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/shot.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Aiamjay`s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <article id="post-开源动画分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开源动画分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="开源动画分析"><a href="#开源动画分析" class="headerlink" title="开源动画分析"></a>开源动画分析</h1><p>开原动画有两个，一个是实现碎纸机效果的；另外一个是实现3D翻转效果。  </p>
+<h2 id="PaperShredder动画"><a href="#PaperShredder动画" class="headerlink" title="PaperShredder动画"></a>PaperShredder动画</h2><h3 id="动画效果展示"><a href="#动画效果展示" class="headerlink" title="动画效果展示"></a>动画效果展示</h3><p><img src="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/shot.png" alt=""><br><img src="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/1.gif" alt=""><br><img src="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/2.gif" alt=""><br><img src="https://github.com/ldoublem/PaperShredder/raw/master/screenshot/3.gif" alt="">  </p>
+<h3 id="动画自定义的属性"><a href="#动画自定义的属性" class="headerlink" title="动画自定义的属性"></a>动画自定义的属性</h3><pre><code class="xml"><span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"PaperShredderView"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderBgColor"</span> <span class="attr">format</span>=<span class="string">"color|reference"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderPaperEnterColor"</span> <span class="attr">format</span>=<span class="string">"color|reference"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderPaperColor"</span> <span class="attr">format</span>=<span class="string">"color|reference"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderText"</span> <span class="attr">format</span>=<span class="string">"string|reference"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderTextColor"</span> <span class="attr">format</span>=<span class="string">"color|reference"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderTextShadow"</span> <span class="attr">format</span>=<span class="string">"boolean"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderType"</span> <span class="attr">format</span>=<span class="string">"integer"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"sherderProgress"</span> <span class="attr">format</span>=<span class="string">"boolean"</span>&gt;</span><span class="tag">&lt;/<span class="name">attr</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span>
+</code></pre>
+<p>可以看出，能定义纸张的颜色，进度条等，碎纸的类型，分为两种：一种是条状碎纸；一种是块状碎纸。<br>动画使用示例：  </p>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">com.ldoublem.PaperShredderlib.PaperShredderView</span>
+        <span class="attr">android:layout_width</span>=<span class="string">"200dp"</span>
+        <span class="attr">android:id</span>=<span class="string">"@+id/ps_delete2"</span>
+        <span class="attr">android:layout_height</span>=<span class="string">"220dp"</span>
+        <span class="attr">paper:sherderBgColor</span>=<span class="string">"#f4c600"</span>
+        <span class="attr">paper:sherderText</span>=<span class="string">"清理中"</span>
+        <span class="attr">paper:sherderType</span>=<span class="string">"0"</span>
+        <span class="attr">paper:sherderPaperEnterColor</span>=<span class="string">"#56abe4"</span>
+        <span class="attr">paper:sherderTextShadow</span>=<span class="string">"false"</span>
+        <span class="attr">paper:sherderTextColor</span>=<span class="string">"#99101010"</span>
+        <span class="attr">paper:sherderPaperColor</span>=<span class="string">"#dbdbdb"</span>
+        <span class="attr">paper:sherderProgress</span>=<span class="string">"false"</span>
+      /&gt;</span>
+</code></pre>
+<pre><code class="java">mPaperShredderView.setShrededType(PaperShredderView.SHREDEDTYPE.Piece);<span class="comment">//纸片效果和纸条效果</span>
+mPaperShredderView.setSherderProgress(<span class="keyword">false</span>);
+mPaperShredderView.setTitle(<span class="string">"清除数据"</span>);
+mPaperShredderView.setTextColor(Color.BLACK);
+mPaperShredderView.setPaperColor(Color.BLACK);
+mPaperShredderView.setBgColor(Color.WHITE);
+mPaperShredderView.setTextShadow(<span class="keyword">false</span>);
+mPaperShredderView.setPaperEnterColor(Color.BLACK);
+mPaperShredderView.startAnim(<span class="number">1000</span>);
+mPaperShredderView.stopAnim();
+</code></pre>
+<h3 id="动画实现"><a href="#动画实现" class="headerlink" title="动画实现"></a>动画实现</h3><p>PaperShredderView是直接从View继承而来，按照一般的自定义View的步骤，先从onDraw()函数分析。  </p>
+<pre><code class="java"><span class="meta">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>{
+    <span class="keyword">super</span>.onDraw(canvas);
+    canvas.save();
+    <span class="comment">// dp转px</span>
+    mPaddingLR = dip2px(getMeasuredWidth() / <span class="number">30</span>);
+    mPaint.setColor(Color.WHITE);
+    drawPaper(canvas);
+    <span class="keyword">if</span> (mShrededType == SHREDEDTYPE.Slip)
+        drawPaperSlip(canvas);
+    <span class="keyword">else</span> <span class="keyword">if</span> (mShrededType == SHREDEDTYPE.Piece)
+        drawPaperPiece(canvas);
+    drawHost(canvas);
+    canvas.restore();
+}
+</code></pre>
+<p>这个函数里面主要是调用接口，首先调用的是 drawPaper(canvas)，这个函数的作用是画最上面的纸张，函数比较简单，计算出纸张的<br>top left right bottom等参数，调用drawRect()画出来，但是纸张的高度会关联到动画的中间值，做出纸张高度减小的碎纸效果。<br>SHREDEDTYPE.Slip和SHREDEDTYPE.Piece是两种不同的碎纸类型。drawHost函数是画出碎纸机彩色背景。实现动画效果的主要是两个<br>函数，下面讲解。  </p>
+<h4 id="drawPaperSlip"><a href="#drawPaperSlip" class="headerlink" title="drawPaperSlip"></a>drawPaperSlip</h4><p>此函数是实现条状的碎纸效果，代码不算长。  </p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawPaperSlip</span><span class="params">(Canvas canvas)</span> </span>{
+        Path PaperSlip = <span class="keyword">new</span> Path();
+        <span class="comment">// 计算纸条的宽度</span>
+        <span class="keyword">float</span> paperSlipwidth = rectFPaper.width() / paperSlipCount;
+        <span class="comment">// 碎纸条的间隔</span>
+        <span class="keyword">float</span> paperSlipspace = paperSlipwidth / <span class="number">7f</span>;
+        <span class="comment">// 动画的 控制量</span>
+        <span class="keyword">float</span> animatedValue = mAnimatedValue;
+        mPaint.setColor(paperColor);
+        <span class="comment">// size()函数的到的是 碎纸条的个数 </span>
+        <span class="comment">// 下面是画出 出来的纸条的形状</span>
+
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; randomQuadHighs.size(); i++) {
+            PaperSlip.reset();
+            <span class="comment">// 这个纸条的是直接画在纸的后面</span>
+            PaperSlip.moveTo(rectFPaper.left + i * paperSlipwidth + paperSlipspace,
+                    rectFPaper.bottom
+            );
+            PaperSlip.lineTo(rectFPaper.left + (i + <span class="number">1</span>) * paperSlipwidth - paperSlipspace,
+                    rectFPaper.bottom
+            );
+            <span class="comment">// 纸条的高度</span>
+            <span class="keyword">float</span> paperSlipHigh = rectFPaper.height() * <span class="number">2</span> / <span class="number">3f</span>
+                    + rectFPaper.height() / <span class="number">3f</span> * randomHighs.get(i);
+            <span class="comment">//这个是控制 出来的纸条弯弯曲曲的效果  初始值为 2.5</span>
+            <span class="keyword">float</span> randomQuadWidth = <span class="keyword">this</span>.randomQuadWidths.get(i) * paperSlipspace * <span class="number">2.5f</span> * animatedValue;
+            <span class="comment">// 调整纸条的走向</span>
+            <span class="keyword">if</span> (randomQuadDirection.get(i) &gt; <span class="number">0.5f</span>) {
+                randomQuadWidth = randomQuadWidth * -<span class="number">1</span>;
+            }
+            <span class="comment">// 贝塞尔曲线控制点的值，由randomQuadHigh 和 randomQuadWidth组成</span>
+            <span class="keyword">float</span> randomQuadHigh = <span class="keyword">this</span>.randomQuadHighs.get(i) * paperSlipHigh * animatedValue;
+            <span class="comment">// 画贝塞尔曲线  前面为控制点坐标， 后面为终点坐标</span>
+            PaperSlip.quadTo(
+                    rectFPaper.left + (i + <span class="number">1</span>) * paperSlipwidth - paperSlipspace -
+                            randomQuadWidth,
+                    rectFPaper.bottom + randomQuadHigh,
+                    rectFPaper.left + (i + <span class="number">1</span>) * paperSlipwidth - paperSlipspace,
+                    rectFPaper.bottom + paperSlipHigh
+            );
+            PaperSlip.lineTo(rectFPaper.left + (i) * paperSlipwidth + paperSlipspace,
+                    rectFPaper.bottom + paperSlipHigh
+            );
+            PaperSlip.quadTo(
+                    rectFPaper.left + i * paperSlipwidth + paperSlipspace -
+                            randomQuadWidth,
+                    rectFPaper.bottom + randomQuadHigh,
+
+
+                    rectFPaper.left + i * paperSlipwidth + paperSlipspace,
+                    rectFPaper.bottom
+            );
+            PaperSlip.close();
+            canvas.drawPath(PaperSlip, mPaint);
+        }
+    }
+</code></pre>
+<p>代码的逻辑是计算每个长条的宽度和长条之间的间隙，在循环里面，一次绘制给个长条，使用的是Path里面的lineTo和quadTo接口；首先lineTo画出<br>最上面一条横线，接着使用贝塞尔曲线绘制竖线，实现纸条弯曲的效果，依次绘制矩形的四个边，画出纸条。这个函数里面用到了四个全局变量<br>randomQuadWidths randomQuadHighs randomQuadDirection 这三个数组是使用随机函数生成的，存储纸条高度、宽度和方向的控制量</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>rectFPaper.left + i * paperSlipwidth + paperSlipspace</td>
+</tr>
+<tr>
+<td>right</td>
+<td>rectFPaper.left + (i + 1) * paperSlipwidth - paperSlipspace</td>
+</tr>
+<tr>
+<td>height</td>
+<td>float paperSlipHigh = rectFPaper.height() <em> 2 / 3f + rectFPaper.height() / 3f </em> randomHighs.get(i);</td>
+</tr>
+<tr>
+<td>二阶贝塞尔控制点 x</td>
+<td>float randomQuadWidth = this.randomQuadWidths.get(i) <em> paperSlipspace </em> 2.5f * animatedValue;</td>
+</tr>
+<tr>
+<td>二阶贝塞尔控制点 y</td>
+<td>float randomQuadHigh = this.randomQuadHighs.get(i) <em> paperSlipHigh </em> animatedValue;</td>
+</tr>
+<tr>
+<td>纸条的弯曲方向</td>
+<td>randomQuadDirection.get(i)</td>
+</tr>
+</tbody>
+</table>
+<p>表格中将代码中的计算逻辑理顺了一下，基本上能直观的理解明白。</p>
+<h4 id="drawPaperPiece"><a href="#drawPaperPiece" class="headerlink" title="drawPaperPiece"></a>drawPaperPiece</h4><p>这部分代码略长，计算部分比上面的还有多一些，下面直接贴出代码。 </p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawPaperPiece</span><span class="params">(Canvas canvas)</span> </span>{
+    <span class="keyword">if</span> (mAnimatedValue == <span class="number">0</span>)
+        <span class="keyword">return</span>;
+    <span class="comment">// paperSlipCount  每一个纸片的宽度</span>
+    <span class="keyword">float</span> paperPiecewidth = rectFPaper.width() / paperSlipCount;
+    Path paperPiece = <span class="keyword">new</span> Path();
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; PaperPiecerandAngle.size(); i++) {
+
+        <span class="keyword">int</span> angle = (<span class="keyword">int</span>) (PaperPiecerandAngle.get(i) * <span class="number">360</span>);
+        angle = (<span class="keyword">int</span>) (angle + <span class="number">180</span> * mAnimatedValue);
+        <span class="keyword">float</span> radius = paperPiecewidth * <span class="number">0.8f</span>;
+        <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &lt; <span class="number">0.3f</span>) {
+            PaperPiecerandRadius.set(i, <span class="number">0.4f</span>);
+        }
+        radius = radius * PaperPiecerandRadius.get(i);
+        <span class="keyword">float</span> centerX, centerY;
+        <span class="comment">// mPaddingLR = dip2px(getMeasuredWidth() / 30);</span>
+        <span class="comment">// 这个是控制碎纸片飘落时的X轴上面的位置</span>
+        centerX = mPaddingLR * <span class="number">3</span> + (getMeasuredWidth() - <span class="number">6</span> * mPaddingLR) * PaperPiecerandX.get(i);
+
+        centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue);
+
+        <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt;= <span class="number">0.3f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.4f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.8f</span>);
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.4f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.5f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.6f</span>);
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.5f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.6f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.4f</span>);
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.6f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.7f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.2f</span>);
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.7f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.8f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.4f</span>);
+
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.8f</span> &amp;&amp; PaperPiecerandRadius.get(i) &lt;= <span class="number">0.9f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.6f</span>);
+
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandRadius.get(i) &gt; <span class="number">0.9f</span>) {
+
+            centerY = getMeasuredHeight() / <span class="number">3</span> * (PaperPiecerandY.get(i) + <span class="number">1.0f</span> + mAnimatedValue * <span class="number">1.8f</span>);
+        }
+        <span class="keyword">float</span> x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+        <span class="keyword">float</span> y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+
+        paperPiece.reset();
+        paperPiece.moveTo(centerX - x,
+                centerY - y
+        );
+        <span class="keyword">int</span> angleBig = <span class="number">0</span>;
+        <span class="keyword">if</span> (PaperPiecerandX.get(i) &gt; <span class="number">0.7f</span>) {
+            angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * <span class="number">0.7f</span>);
+        } <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandX.get(i) &lt; <span class="number">0.3f</span>) {
+            angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * <span class="number">0.3f</span>);
+        } <span class="keyword">else</span> {
+            angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * PaperPiecerandX.get(i));
+        }
+        <span class="keyword">int</span> angleSmall = <span class="number">180</span> - angleBig;
+
+        angle = angle + angleBig;
+        x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+        y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+        paperPiece.lineTo(centerX - x,
+                centerY - y
+        );
+        angle = angle + angleSmall;
+        x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+        y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+        paperPiece.lineTo(centerX - x,
+                centerY - y
+        );
+        angle = angle + angleBig;
+        x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+        y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+        paperPiece.lineTo(centerX - x,
+                centerY - y
+        );
+        angle = angle + angleSmall;
+        x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+        y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+        paperPiece.lineTo(centerX - x,
+                centerY - y
+        );
+        paperPiece.close();
+
+        <span class="keyword">int</span> color = (Integer) evaluator.evaluate(PaperPiecerandRadius.get(i),
+                Color.rgb(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>), paperColor
+        );
+        mPaint.setColor(color);
+        canvas.drawPath(paperPiece, mPaint);
+    }
+    mPaint.setColor(paperColor);
+}
+</code></pre>
+<p>主要变量列在下面的列表中：<br>|参数|计算过程|<br>|—–|——|<br>|碎片旋转角度|angle = (int) (PaperPiecerandAngle.get(i) <em> 360 + 180 </em> mAnimatedValue);|<br>|半径|radius = paperPiecewidth <em> 0.8f </em> PaperPiecerandRadius.get(i);|<br>|纸片中心的X坐标|centerX = mPaddingLR <em> 3 + (getMeasuredWidth() - 6 </em> mPaddingLR) <em> PaperPiecerandX.get(i);|<br>|纸片中心Y坐标|centerY = getMeasuredHeight() / 3 </em> (PaperPiecerandY.get(i) + 1.0f + mAnimatedValue);|<br>纸片的旋转效果，是这样绘制出来的：  </p>
+<pre><code class="java"><span class="keyword">int</span> angleBig = <span class="number">0</span>;
+<span class="keyword">if</span> (PaperPiecerandX.get(i) &gt; <span class="number">0.7f</span>) {
+    angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * <span class="number">0.7f</span>);
+} <span class="keyword">else</span> <span class="keyword">if</span> (PaperPiecerandX.get(i) &lt; <span class="number">0.3f</span>) {
+    angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * <span class="number">0.3f</span>);
+} <span class="keyword">else</span> {
+    angleBig = (<span class="keyword">int</span>) (<span class="number">180</span> * PaperPiecerandX.get(i));
+}
+<span class="keyword">int</span> angleSmall = <span class="number">180</span> - angleBig;
+</code></pre>
+<p>这部分是计算出两个互补的角度。使用这几个互补角度来计算矩形的四角距离中心的长度。     </p>
+<pre><code class="java">angle = angle + angleBig;
+x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+paperPiece.lineTo(centerX - x,
+        centerY - y
+
+);
+
+angle = angle + angleSmall;
+x = (<span class="keyword">float</span>) ((radius) * Math.cos(angle * Math.PI / <span class="number">180f</span>));
+y = (<span class="keyword">float</span>) ((radius) * Math.sin(angle * Math.PI / <span class="number">180f</span>));
+paperPiece.lineTo(centerX - x,
+        centerY - y
+
+);
+</code></pre>
+<p>这部分在代码中重复了一次，它的作用是计算矩形四个角的坐标，调用lineTo画出四边。相当于在radius为半径，centerX和centerY为圆心<br>的园内，利用cos和sin函数计算四角坐标离center的距离。由于angle本身和mAnimatedValue有关联，是一个变动的常量，所以画出来的纸片有旋转效果。</p>
+<h3 id="动画调用接口"><a href="#动画调用接口" class="headerlink" title="动画调用接口"></a>动画调用接口</h3><pre><code class="java"><span class="function"><span class="keyword">private</span> ValueAnimator <span class="title">startViewAnim</span><span class="params">(<span class="keyword">float</span> startF, <span class="keyword">final</span> <span class="keyword">float</span> endF, <span class="keyword">long</span> time)</span> </span>{
+    valueAnimator = ValueAnimator.ofFloat(startF, endF);
+    valueAnimator.setDuration(time);
+    valueAnimator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());
+    valueAnimator.setRepeatCount(ValueAnimator.INFINITE);<span class="comment">//无限循环</span>
+    valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+    valueAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() {
+        <span class="meta">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator valueAnimator)</span> </span>{
+
+            mAnimatedValue = (<span class="keyword">float</span>) valueAnimator.getAnimatedValue();
+            invalidate();
+        }
+    });
+    valueAnimator.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() {
+        <span class="meta">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>{
+            <span class="keyword">super</span>.onAnimationEnd(animation);
+            setRandom();
+        }
+        <span class="meta">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span> </span>{
+            <span class="keyword">super</span>.onAnimationStart(animation);
+            setRandom();
+        }
+        <span class="meta">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span> </span>{
+            <span class="keyword">super</span>.onAnimationRepeat(animation);
+            setRandom();
+        }
+    });
+    <span class="keyword">if</span> (!valueAnimator.isRunning()) {
+        valueAnimator.start();
+    }
+    <span class="keyword">return</span> valueAnimator;
+}
+</code></pre>
+<p>动画实际上是一个ValueAnimator，获取中间值，控制上面两个接口里面的绘制坐标；<br>setRandom函数是初始化random值，在动画的开始，结束以及重新开始都会调用。  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个动画实现起来还是十分容易理解的，关键的部分在于算法的设计，经过这样的解读，大体上理解透彻了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/08/30/开源动画分析/" class="article-date">
+  <time datetime="2016-08-30T13:21:04.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2016/08/30/StereoView动画/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          StereoView动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/14/OpneGL-Transformation/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">OpenGL Matrix Transformation</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+  </div>
+  
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+  
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
